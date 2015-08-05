@@ -16,13 +16,13 @@
     <body>
          <body>
         <div class="container">
-            <h2 class="text-center">Make a Post</h2>
+            <h2 class="text-center">Company Home Page</h2>
             <hr/>
             <div class="navbar">
                 <ul class="nav navbar-nav">
-                    <li role="presentation"  class="active"><a href="${pageContext.request.contextPath}/home.jsp">Home</a></li>
+                    <li role="presentation"  class="active"><a href="${pageContext.request.contextPath}/home">Home</a></li>
                     <li role="presentation"><a href="${pageContext.request.contextPath}/#">About</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/#">Blog</a></li>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/makeapost">Blog</a></li>
                     <li role="presentation"><a href="${pageContext.request.contextPath}/#">Search</a>
 
                     </li>

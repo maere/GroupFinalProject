@@ -26,9 +26,9 @@
             <hr/>
             <div class="navbar">
                 <ul class="nav navbar-nav">
-                    <li role="presentation"  class="active"><a href="${pageContext.request.contextPath}/home.jsp">Home</a></li>
+                    <li role="presentation"  class="active"><a href="${pageContext.request.contextPath}/home">Home</a></li>
                     <li role="presentation"><a href="${pageContext.request.contextPath}/#">About</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/#">Blog</a></li>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/makeapost">Blog</a></li>
                     <li role="presentation"><a href="${pageContext.request.contextPath}/#">Search</a>
 
                     </li>
