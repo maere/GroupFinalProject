@@ -53,7 +53,7 @@
                                 <div class="form-group">
                                     <!--<label class="col-md-1 control-label text-left"></label>-->
                                     <div class="col-md-5">
-                                        <input name="blog-post-title" class="form-control" placeholder="Enter Your Blog Post Title" type="text">
+                                        <input name="post-title" class="form-control" placeholder="Enter Your Blog Post Title" type="text">
                                     </div>
                                     <div class="col-md-6"></div>
                                 </div>
