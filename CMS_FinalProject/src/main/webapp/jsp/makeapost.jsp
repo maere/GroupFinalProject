@@ -51,7 +51,7 @@
 
                             <form class="form-horizontal row-border" method="post">
                                 <div class="form-group">
-                                    <!--<label class="col-md-1 control-label text-left"></label>-->
+                                    <label class="col-md-1 control-label text-left">Title</label>
                                     <div class="col-md-5">
                                         <input name="post-title" class="form-control" placeholder="Enter Your Blog Post Title" type="text">
                                     </div>
@@ -59,22 +59,22 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <!--<label class="col-md-1 control-label"></label>-->
+                                    <label class="col-md-1 control-label">live date</label>-->
                                     <div class="col-md-5">
-                                        <input class="form-control" name="placeholder" placeholder="Enter Your Blog Post Go Live Date" type="text">
+                                        <input type="date" class="form-control" name="placeholder" placeholder="Enter your blog post go live date" type="text">
                                     </div>
                                     <div class="col-md-6"></div>
                                 </div>     
 
                                 <div class="form-group">
-                                    <!--<label class="col-md-1 control-label"></label>-->
+                                    <label class="col-md-1 control-label">Take down date</label>
                                     <div class="col-md-5">
-                                        <input class="form-control" name="placeholder" placeholder="Enter Your Date to Retire The Post" type="text">
+                                        <input type="date" class="form-control" name="takeDownDate" placeholder="Enter Your Date to take down the Post" type="text">
                                     </div>
                                     <div class="col-md-6"></div>
                                 </div> 
 
-                                <textarea id="mytextarea"></textarea>   
+                                <textarea id="mytextarea" name="mytextarea"></textarea>   
 
 
 

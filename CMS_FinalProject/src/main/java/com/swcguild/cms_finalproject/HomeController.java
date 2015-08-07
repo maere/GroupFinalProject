@@ -22,7 +22,7 @@ public class HomeController {
     @RequestMapping(value="/makeapost", method=RequestMethod.POST)
     public void receiveTinyMce(HttpServletRequest request)
     {
-        String result = request.getParameter("post-title");
+        String result = request.getParameter("mytextarea");
         System.out.println(result);
     }
 //    public String posting(Map<String, Object> model) {
