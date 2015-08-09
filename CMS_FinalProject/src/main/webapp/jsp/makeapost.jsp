@@ -76,7 +76,7 @@
 
                                 <textarea id="mytextarea" name="mytextarea"></textarea>   
 
-                                
+
 
                                 <div class="row">
                                     <!--<div class="col-md-2 col-xs-2 col-sm-2 and.col-lg-2">-->
@@ -85,8 +85,10 @@
                                     <div class="col-md-2">
                                         <label for="tag-1"></label>
                                         <input type="text" class="form-control" name="tag-1" placeholder="Tag #1"/><br /><!--the text value of myNotes is what will be sent -->
+                                      
                                     </div>
 
+<<<<<<< HEAD
 <!--                                     <div class="col-md-2"> -->
 <!--                                         <label for="tag-2"></label> -->
 <!--                                         <input type="text" class="form-control" name="tag-2" placeholder="Tag #2" /><br /> -->
@@ -106,6 +108,23 @@
 <!--                                         <label for="tag-5"></label> -->
 <!--                                         <input type="text" class="form-control" name="tag-5" placeholder="Tag #5"><br />      -->
 <!--                                     </div> -->
+=======
+                                    <div class="col-md-2">
+
+                                    </div>
+
+                                    <div class="col-md-2">      
+
+                                    </div>
+
+                                    <div class="col-md-2" >
+
+                                    </div>
+
+                                    <div class="col-md-2" >
+
+                                    </div>
+>>>>>>> origin/master
                                     <br>
                                     <div class="col-md-2">   
                                         <button type="submit" class="btn btn-primary btn-sm ">Submit</button>
