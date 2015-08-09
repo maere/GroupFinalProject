@@ -5,6 +5,7 @@
  */
 package com.swcguild.cms_finalproject.dto;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,9 +14,9 @@ import java.util.List;
  */
 public class Post {
     private int postId;
-    private int createdDate;
-    private int uploadDate;
-    private int takeDownDate;
+    private Date createdDate;
+    private Date uploadDate;
+    private Date takeDownDate;
     private String content;
     private List<String> hashTags;
     private List<String> comments;
@@ -28,27 +29,27 @@ public class Post {
         this.postId = postId;
     }
 
-    public int getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(int createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 
-    public int getUploadDate() {
+    public Date getUploadDate() {
         return uploadDate;
     }
 
-    public void setUploadDate(int uploadDate) {
+    public void setUploadDate(Date uploadDate) {
         this.uploadDate = uploadDate;
     }
 
-    public int getTakeDownDate() {
+    public Date getTakeDownDate() {
         return takeDownDate;
     }
 
-    public void setTakeDownDate(int takeDownDate) {
+    public void setTakeDownDate(Date takeDownDate) {
         this.takeDownDate = takeDownDate;
     }
 
