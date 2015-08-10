@@ -13,4 +13,25 @@ public class StaticPage {
     int staticPageId;
     String title;
     String content;
+    
+	public int getStaticPageId() {
+		return staticPageId;
+	}
+	public void setStaticPageId(int staticPageId) {
+		this.staticPageId = staticPageId;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+    
+    
 }

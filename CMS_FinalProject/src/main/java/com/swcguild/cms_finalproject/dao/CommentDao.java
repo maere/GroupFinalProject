@@ -9,7 +9,7 @@ public interface CommentDao {
 	public Comment createComment(Comment comment);
 	public Comment getCommentById(int commentId);
 	public List<Comment> getAllComments();
-	public void updateComment(int commentId);
+	public void updateComment(Comment comment);
 	public void deleteComment(int commentId);
 	
 }

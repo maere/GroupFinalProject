@@ -7,7 +7,7 @@ import com.swcguild.cms_finalproject.dto.StaticPage;
 public interface StaticPageDao {
 
 	public StaticPage createStaticPage(StaticPage staticPage);
-	public void updateStaticPage(int staticPageId);
+	public void updateStaticPage(StaticPage staticPage);
 	public StaticPage getStaticPageById(int staticPageId); // review for content
 	public List<StaticPage> getAllStaticPages();
 	public void deleteStaticPage(int staticPageId);

@@ -42,11 +42,13 @@ public class HomeController {
         return "home";
     }
     
+
     //added a public GET to get a post page
     @RequestMapping(value="post/{postId}", method=RequestMethod.GET)
     @ResponseBody public Post retrieveBlogPostPage(@PathVariable("postId") int postId){
         Post selectedPost = daoP.getPostById(postId);
         return selectedPost; //is this correct? we want to return the post object to Ajax to parse and place in page.
+
     }
     
     
