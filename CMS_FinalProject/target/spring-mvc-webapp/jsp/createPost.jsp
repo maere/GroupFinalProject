@@ -15,36 +15,21 @@
             });
         </script>
 
-
         <!-- SWC Icon -->
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png">
 
     </head>
     <body>
         <div class="container">
-            <h2 class="text-center">Make a Post</h2>
-            <hr/>
-            <div class="navbar">
-                <ul class="nav navbar-nav">
-                    <li role="presentation"  class="active"><a href="${pageContext.request.contextPath}/home">Home</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/#">About</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/makeapost">Blog</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/#">Search</a>
-
-                    </li>
-
-                </ul>    
-            </div>
-
-
-
+            
+            <jsp:include page="navBarWithoutLogin.jsp"></jsp:include>
             <!-- Row start -->
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading clearfix">
                             <i class="icon-calendar"></i>
-                            <h3 class="panel-title">Add a Blog Post</h3>
+                            <h3 class="panel-title">Create a post</h3>
                         </div>
 
                         <div class="panel-body">
@@ -79,36 +64,12 @@
 
 
                                 <div class="row">
-                                    <!--<div class="col-md-2 col-xs-2 col-sm-2 and.col-lg-2">-->
-
-                                    <!-- might need to do nested row, w. 3 columns for grid at 1, 3, 2-->
                                     <div class="col-md-2">
                                         <label for="tag-1"></label>
                                         <input type="text" class="form-control" name="tag-1" placeholder="Tag #1"/><br /><!--the text value of myNotes is what will be sent -->
                                       
                                     </div>
 
-<<<<<<< HEAD
-<!--                                     <div class="col-md-2"> -->
-<!--                                         <label for="tag-2"></label> -->
-<!--                                         <input type="text" class="form-control" name="tag-2" placeholder="Tag #2" /><br /> -->
-<!--                                     </div> -->
-
-<!--                                     <div class="col-md-2">       -->
-<!--                                         <label for="tag-3"></label> -->
-<!--                                         <input type="text" class="form-control" name="tag-3" placeholder="Tag #3"/><br /> -->
-<!--                                     </div> -->
-
-<!--                                     <div class="col-md-2" > -->
-<!--                                         <label for="tag-4"></label> -->
-<!--                                         <input type="text" class="form-control" name="tag-4" placeholder="Tag #4"><br /> -->
-<!--                                     </div> -->
-
-<!--                                     <div class="col-md-2" > -->
-<!--                                         <label for="tag-5"></label> -->
-<!--                                         <input type="text" class="form-control" name="tag-5" placeholder="Tag #5"><br />      -->
-<!--                                     </div> -->
-=======
                                     <div class="col-md-2">
 
                                     </div>
@@ -124,7 +85,6 @@
                                     <div class="col-md-2" >
 
                                     </div>
->>>>>>> origin/master
                                     <br>
                                     <div class="col-md-2">   
                                         <button type="submit" class="btn btn-primary btn-sm ">Submit</button>
@@ -137,15 +97,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Row end -->
 
-            <!--</div>->
-            </div>
-
-
-
-
-        </div>
             <!-- Placed at the end of the document so the pages load faster -->
             <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
             <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>

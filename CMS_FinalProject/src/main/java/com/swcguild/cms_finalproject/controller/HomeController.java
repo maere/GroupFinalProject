@@ -23,9 +23,14 @@ public class HomeController {
         return "home";
     }
     
-    @RequestMapping(value="/makeapost", method=RequestMethod.GET)
+    @RequestMapping(value="/about", method=RequestMethod.GET)
+    public String aboutPage(Map<String, Object> model) {
+        return "about";
+    }
+    
+    @RequestMapping(value="/createPost", method=RequestMethod.GET)
     public String postPage(Map<String, Object> model) {
-        return "makeapost";
+        return "createPost";
     }
   
     @RequestMapping(value="/makeapost", method=RequestMethod.POST)
