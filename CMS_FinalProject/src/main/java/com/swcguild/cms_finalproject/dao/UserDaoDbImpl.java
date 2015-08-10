@@ -16,10 +16,14 @@ public class UserDaoDbImpl implements UserDao {
 
 	private JdbcTemplate jdbcTemplate;
 	
-	private void setJdbcTemplate(JdbcTemplate jdbcTemplate)
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate)
 	{
 		this.jdbcTemplate = jdbcTemplate;
 	}
+
+        public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+        }
 	
 	// USERS
 	//======
@@ -27,7 +31,7 @@ public class UserDaoDbImpl implements UserDao {
 	private static final String SQL_INSERT_USER = "INSERT INTO users (userName, password) VALUES(?,?)"; // role set in role table
 	private static final String SQL_DELETE_USER = "DELETE FROM users WHERE user_id=?";
 	private static final String SQL_UPDATE_USER = "UPDATE users SET userName=?, password=? WHERE user_id=?";
-	private static final String SQL_SELECT_USER = "SELECT FROM users WHERE user_id=?";
+	private static final String SQL_SELECT_USER = "SELECT FROM users WHERE user_id=?"; //this method needs name and password too...unless we move this logic to the controller
 	private static final String SQL_SELECT_ALL_USERS = "SELECT * FROM users";
 	
 	// Query for linking table for user & role

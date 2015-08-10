@@ -20,6 +20,8 @@ public class Post {
     private String content;
     private List<String> hashTags;
     private List<String> comments;
+    private int userIdCreatedBy;
+    private int userIdUpdatedBy;        
 
     public int getPostId() {
         return postId;
@@ -76,5 +78,24 @@ public class Post {
     public void setComments(List<String> comments) {
         this.comments = comments;
     }
+
+    public int getUserIdCreatedBy() {
+        return userIdCreatedBy;
+    }
+
+    public void setUserIdCreatedBy(int userIdCreatedBy) {
+        this.userIdCreatedBy = userIdCreatedBy;
+    }
+
+    public int getUserIdUpdatedBy() {
+        return userIdUpdatedBy;
+    }
+
+    public void setUserIdUpdatedBy(int userIdUpdatedBy) {
+        this.userIdUpdatedBy = userIdUpdatedBy;
+    }
+    
+    
+    
     
 }
