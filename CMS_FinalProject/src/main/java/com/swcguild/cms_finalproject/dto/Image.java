@@ -5,7 +5,8 @@
  */
 package com.swcguild.cms_finalproject.dto;
 
-import java.io.File;
+
+import com.mysql.jdbc.Blob;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.io.File;
 public class Image {
     private int imageId;
     private String name;
-    private File image;
+    private java.sql.Blob image;
     private String imageType;
 
     public int getImageId() {
@@ -33,12 +34,12 @@ public class Image {
         this.name = name;
     }
 
-    public File getImage() {
+    public java.sql.Blob getImage() {
         return image;
     }
 
-    public void setImage(File image) {
-        this.image = image;
+    public void setImage(java.sql.Blob blob) {
+        this.image = blob;
     }
 
     public String getImageType() {

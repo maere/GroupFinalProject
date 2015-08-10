@@ -9,7 +9,7 @@ public interface HashtagDao {
 	public Hashtag createHashTag(Hashtag hashTag);
 	public Hashtag gethashTagById(int hashTagId);
 	public List<Hashtag> getAllHashTags();
-	public void updateHashTag(int hashTagId);
+	public void updateHashTag(Hashtag hashTag);
 	public void deleteHashTag(int hashTagId);
 	
 }

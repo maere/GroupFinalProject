@@ -18,7 +18,7 @@
 	  
 	  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 	  	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-	  	<property name="url" value="jdbc:mysql://localhost:3306/blog_test" />
+	  	<property name="url" value="jdbc:mysql://localhost:3306/cms_test" />
 	  	<property name="username" value="root" />
 	  	<property name="password" value="apprentice" />
 	  	<property name="initialSize" value="5" />  <!-- Runs 5 up to 10 threads at one time  -->
@@ -34,8 +34,32 @@
 		</bean>
 
 
-<!--     <bean id="dvdLibraryDao" class="com.swcguild.dvdlibrarymvcdb.dao.DvdLibraryDaoDbImpl" > -->
-<!--     <property name="jdbcTemplate" ref="jdbcTemplate" /> -->
-<!--     </bean> -->
+    <bean id="PostDao" class="com.swcguild.cms_finalproject.dao.PostDaoDbImpl" >
+    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    
+    <bean id="UserDao" class="com.swcguild.cms_finalproject.dao.userDaoDbImpl" >
+    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>    
+    
+    <bean id="HashTagDao" class="com.swcguild.cms_finalproject.dao.HashTagDaoDbImpl" >
+    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    
+    <bean id="CategoryDao" class="com.swcguild.cms_finalproject.dao.CategoryDaoDbImpl" >
+    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>    
+    
+    <bean id="StaticPageDao" class="com.swcguild.cms_finalproject.dao.StaticPageDaoDbImpl" >
+    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>    
+    
+    <bean id="ImageDao" class="com.swcguild.cms_finalproject.dao.ImageDaoDbImpl" >
+    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>    
+    
+    <bean id="CommentDao" class="com.swcguild.cms_finalproject.dao.CommentDaoDbImpl" >
+    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>    
     
 </beans>
