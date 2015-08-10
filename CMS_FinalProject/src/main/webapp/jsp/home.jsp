@@ -8,31 +8,29 @@
         <title>Index Page</title>
         <!-- Bootstrap core CSS -->
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/logincss.css" rel="stylesheet">
 
         <!-- SWC Icon -->
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png">
 
     </head>
     <body>
-         <body>
-        <div class="container">
-            <h2 class="text-center">Company Home Page</h2>
-            <hr/>
-            <div class="navbar">
-                <ul class="nav navbar-nav">
-                    <li role="presentation"  class="active"><a href="${pageContext.request.contextPath}/home">Home</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/#">About</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/makeapost">Blog</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/#">Search</a>
 
-                    </li>
-
-                </ul>    
+        <jsp:include page="navBarWithLogin.jsp"></jsp:include>
+            <div class="col-md-4-center">
+                <h2 class="text-center">Company Home Page</h2>
             </div>
-        </div>
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
+
+
+            <div class="col-md-4-center">
+                <h3 class="text-center">Post 1</h3>
+                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            </div>
+
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/dropdownlogin.js"></script>
 
     </body>
 </html>
