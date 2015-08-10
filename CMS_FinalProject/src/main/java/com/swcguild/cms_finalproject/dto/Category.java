@@ -5,6 +5,8 @@
  */
 package com.swcguild.cms_finalproject.dto;
 
+import java.util.List;
+
 /**
  *
  * @author apprentice
@@ -13,6 +15,7 @@ public class Category {
     private int categoryId;
     private String title;
     private String description;
+    private List<String> categories; // added for getAllPostsByCategory in PostDao
 
     public int getCategoryId() {
         return categoryId;
@@ -37,4 +40,14 @@ public class Category {
     public void setDescription(String description) {
         this.description = description;
     }
+
+	public List<String> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<String> categories) {
+		this.categories = categories;
+	}
+    
+    
 }

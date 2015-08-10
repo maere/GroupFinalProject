@@ -11,7 +11,7 @@ package com.swcguild.cms_finalproject.dto;
  */
 public class User {
     private int userId;
-    private String username;
+    private String userName;
     private String password;
     private int roleId;
 
@@ -24,11 +24,11 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
