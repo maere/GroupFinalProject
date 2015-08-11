@@ -28,7 +28,9 @@ public class Post {
 
     
     
-    @Override
+    
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -39,6 +41,8 @@ public class Post {
 		result = prime * result + postId;
 		result = prime * result + ((takeDownDate == null) ? 0 : takeDownDate.hashCode());
 		result = prime * result + ((uploadDate == null) ? 0 : uploadDate.hashCode());
+		result = prime * result + userIdCreatedBy;
+		result = prime * result + userIdUpdatedBy;
 		return result;
 	}
 
@@ -97,6 +101,12 @@ public class Post {
 				return false;
 			}
 		} else if (!uploadDate.equals(other.uploadDate)) {
+			return false;
+		}
+		if (userIdCreatedBy != other.userIdCreatedBy) {
+			return false;
+		}
+		if (userIdUpdatedBy != other.userIdUpdatedBy) {
 			return false;
 		}
 		return true;

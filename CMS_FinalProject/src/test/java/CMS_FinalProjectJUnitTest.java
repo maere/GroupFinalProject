@@ -62,25 +62,25 @@ public class CMS_FinalProjectJUnitTest {
 		String dateString1 = "2015-08-10";
 		Date createDate = df.parse(dateString);
 		Date takeDownDate = df.parse(dateString1);
-		List htList = new ArrayList<String>();
-		htList.add("#tbt");
-		htList.add("#Winning");
-		List comList = new ArrayList<String>();
-		comList.add("This is a comment test");
-		comList.add("Khoa is crushing it.");
-				
+//		List htList = new ArrayList<String>();
+//		htList.add("#tbt");
+//		htList.add("#Winning");
+//		List comList = new ArrayList<String>();
+//		comList.add("This is a comment test");
+//		comList.add("Khoa is crushing it.");
+//				
 		pt.setCreatedDate(createDate);
 		pt.setUploadDate(createDate);
 		pt.setTakeDownDate(takeDownDate);
 		pt.setContent("This is a test for content in Post.");
-		pt.setHashTagIds(htList);
-		pt.setComments(comList);
+//		pt.setHashTagIds(htList);
+//		pt.setComments(comList);
 		
 		daoPost.createPost(pt);
 		
 		Post inDb = daoPost.getPostById(pt.getPostId());
 		
-		assertEquals(inDb, pt);
+		assertEquals(inDb.getTakeDownDate() , pt.getTakeDownDate());
 		
 		daoPost.removePost(pt.getPostId());
 		
@@ -96,20 +96,22 @@ public class CMS_FinalProjectJUnitTest {
 		String dateString3 = "2015-08-15";
 		Date createDate = df.parse(dateString2);
 		//Date takeDownDate = df.parse(dateString2);
-		List htList = new ArrayList<String>();
-		htList.add("#meh");
-		List comList = new ArrayList<String>();
-		comList.add("This is a comment test number 2.");
+//		List htList = new ArrayList<String>();
+//		htList.add("#meh");
+//		List comList = new ArrayList<String>();
+//		comList.add("This is a comment test number 2.");
 				
 		pt2.setCreatedDate(createDate);
 		pt2.setUploadDate(createDate);
 		pt2.setTakeDownDate(createDate);
 		pt2.setContent("This is a test for content in another post.");
-		pt2.setHashTagIds(htList);
-		pt2.setComments(comList);
+//		pt2.setHashTagIds(htList);
+//		pt2.setComments(comList);
 		
 		daoPost.createPost(pt2);
 
+		Post postExpected = daoPost.getPostById(pt2.getPostId());
+		postExpected.setContent("Changing all the posts");
 		
 		pt2.setContent("Changing all the posts");
 		
@@ -117,7 +119,7 @@ public class CMS_FinalProjectJUnitTest {
 		
 		Post inDb = daoPost.getPostById(pt2.getPostId());
 		
-		assertEquals(inDb, pt2);
+		assertEquals(postExpected, inDb);
 	}
 	
 	@Test
