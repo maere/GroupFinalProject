@@ -16,7 +16,7 @@ public class HashtagDaoDbImpl implements HashtagDao {
 
 	private JdbcTemplate jdbcTemplate;
 	
-	private void setJdbcTempate(JdbcTemplate jdbcTemplate)
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate)
 	{
 		this.jdbcTemplate = jdbcTemplate;
 	}

@@ -16,7 +16,7 @@ public class CommentDaoDbImpl implements CommentDao{
 
 	private JdbcTemplate jdbcTemplate;
 	
-	private void setJdbcTemplate(JdbcTemplate jdbcTemplate)
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate)
 	{
 		this.jdbcTemplate = jdbcTemplate;
 	}

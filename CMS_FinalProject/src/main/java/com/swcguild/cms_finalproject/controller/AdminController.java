@@ -52,9 +52,9 @@ public String displayAdminPanelPage(){
 
  
 //+loadMakeAPostPage(): GET
-@RequestMapping(value="/makeapost", method=RequestMethod.GET)
+@RequestMapping(value="/createPost", method=RequestMethod.GET)
 public String displayMakeAPostPage(){ 
-    return "makeapost";
+    return "createPost";
 }
 
 //+addPostToDB(): POST
