@@ -1,6 +1,6 @@
 <link href="${pageContext.request.contextPath}/css/navBar.css" rel="stylesheet">
 
-<div class="navbar">
+<div class="navbar" id="navbar">
     <ul class="nav navbar-nav">
         <li role="presentation"  class="active"><a href="${pageContext.request.contextPath}/home">Home</a></li>
         <li role="presentation"><a href="${pageContext.request.contextPath}/about">About</a></li>

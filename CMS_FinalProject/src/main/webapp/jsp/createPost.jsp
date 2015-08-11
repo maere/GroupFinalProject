@@ -19,10 +19,11 @@
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png">
 
     </head>
+    <jsp:include page="navBarWithoutLogin.jsp"></jsp:include>
     <body>
         <div class="container">
             
-            <jsp:include page="navBarWithoutLogin.jsp"></jsp:include>
+            
             <!-- Row start -->
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -60,6 +61,7 @@
                                 </div> 
 
                                 <textarea id="mytextarea" name="mytextarea"></textarea>   
+
                                 
                                 <div class="row">
                                     <div class="col-md-2">
