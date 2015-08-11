@@ -16,7 +16,7 @@
     </head>
     <body>
 
-        <jsp:include page="navBarWithLogin.jsp"></jsp:include>
+<%--         <jsp:include page="navBarWithLogin.jsp"></jsp:include> --%>
             <div class="col-md-4-center">
                 <h2 class="text-center">Company Home Page</h2>
             </div>

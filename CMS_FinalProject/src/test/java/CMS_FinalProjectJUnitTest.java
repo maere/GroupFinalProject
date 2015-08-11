@@ -60,7 +60,7 @@ public class CMS_FinalProjectJUnitTest {
 		Post pt = new Post();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString = "2015-08-10";
-		String dateString1 = "2015-08-20";
+		String dateString1 = "2015-08-10";
 		Date createDate = df.parse(dateString);
 		Date takeDownDate = df.parse(dateString1);
 		List htList = new ArrayList<String>();
@@ -74,7 +74,7 @@ public class CMS_FinalProjectJUnitTest {
 		pt.setUploadDate(createDate);
 		pt.setTakeDownDate(takeDownDate);
 		pt.setContent("This is a test for content in Post.");
-		pt.setHashTags(htList);
+		pt.setHashTagIds(htList);
 		pt.setComments(comList);
 		
 		daoPost.createPost(pt);
@@ -94,9 +94,9 @@ public class CMS_FinalProjectJUnitTest {
 		Post pt2 = new Post();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString2 = "2015-08-15";
-		String dateString3 = "2015-08-30";
+		String dateString3 = "2015-08-15";
 		Date createDate = df.parse(dateString2);
-		Date takeDownDate = df.parse(dateString3);
+		//Date takeDownDate = df.parse(dateString2);
 		List htList = new ArrayList<String>();
 		htList.add("#meh");
 		List comList = new ArrayList<String>();
@@ -104,12 +104,13 @@ public class CMS_FinalProjectJUnitTest {
 				
 		pt2.setCreatedDate(createDate);
 		pt2.setUploadDate(createDate);
-		pt2.setTakeDownDate(takeDownDate);
+		pt2.setTakeDownDate(createDate);
 		pt2.setContent("This is a test for content in another post.");
-		pt2.setHashTags(htList);
+		pt2.setHashTagIds(htList);
 		pt2.setComments(comList);
 		
 		daoPost.createPost(pt2);
+
 		
 		pt2.setContent("Changing all the posts");
 		
@@ -138,7 +139,7 @@ public class CMS_FinalProjectJUnitTest {
 		pt3.setUploadDate(createDate);
 		pt3.setTakeDownDate(takeDownDate);
 		pt3.setContent("This is a test for content in another post one.");
-		pt3.setHashTags(htList);
+		pt3.setHashTagIds(htList);
 		pt3.setComments(comList);
 		
 		daoPost.createPost(pt3);
@@ -159,7 +160,7 @@ public class CMS_FinalProjectJUnitTest {
 		pt4.setUploadDate(createDate1);
 		pt4.setTakeDownDate(takeDownDate1);
 		pt4.setContent("This is a test for content in another post one.");
-		pt4.setHashTags(htList1);
+		pt4.setHashTagIds(htList1);
 		pt4.setComments(comList1);
 		
 		daoPost.createPost(pt4);

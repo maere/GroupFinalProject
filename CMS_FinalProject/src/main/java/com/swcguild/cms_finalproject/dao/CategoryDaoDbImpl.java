@@ -16,7 +16,7 @@ public class CategoryDaoDbImpl implements CategoryDao {
 
 	private JdbcTemplate jdbcTemplate;
 	
-	private void setJdbcTemplate(JdbcTemplate jdbcTemplate) 
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) 
 	{
 		this.jdbcTemplate = jdbcTemplate;
 	}

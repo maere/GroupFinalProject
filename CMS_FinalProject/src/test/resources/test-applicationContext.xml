@@ -38,11 +38,11 @@
     <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
     
-    <bean id="UserDao" class="com.swcguild.cms_finalproject.dao.userDaoDbImpl" >
+    <bean id="UserDao" class="com.swcguild.cms_finalproject.dao.UserDaoDbImpl" >
     <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>    
     
-    <bean id="HashTagDao" class="com.swcguild.cms_finalproject.dao.HashTagDaoDbImpl" >
+    <bean id="HashtagDao" class="com.swcguild.cms_finalproject.dao.HashtagDaoDbImpl" >
     <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
     
