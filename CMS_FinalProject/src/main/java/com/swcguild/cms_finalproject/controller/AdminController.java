@@ -60,7 +60,7 @@ public String displayMakeAPostPage(){
 //+addPostToDB(): POST
 @RequestMapping(value="/post", method=RequestMethod.POST)
 @ResponseStatus(HttpStatus.CREATED)
-@ResponseBody public Post createPost(@RequestBody Post post){ //@Valid -- need to add validation to DTO
+@ResponseBody public Post createThisPost(@RequestBody Post post){ //@Valid -- need to add validation to DTO
     daoP.createPost(post);
     return post;
 }

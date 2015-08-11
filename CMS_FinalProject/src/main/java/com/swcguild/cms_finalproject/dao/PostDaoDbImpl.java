@@ -48,7 +48,7 @@ public class PostDaoDbImpl implements PostDao {
 				//post.getHashTags(), 
 				//post.getComments()
 				);
-		post.setPostId(jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID", Integer.class));
+		post.setPostId(jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Integer.class));
 		return post;
 	}
 
