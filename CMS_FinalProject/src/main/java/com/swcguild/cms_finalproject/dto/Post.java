@@ -18,8 +18,13 @@ public class Post {
     private Date uploadDate;
     private Date takeDownDate;
     private String content;
+
     private List<Integer> hashTagIds;
     private List<Integer> commentIds;
+
+    private int userIdCreatedBy;
+    private int userIdUpdatedBy;        
+
 
     
     
@@ -152,5 +157,24 @@ public class Post {
     public void setComments(List<Integer> commentIds) {
         this.commentIds = commentIds;
     }
+
+    public int getUserIdCreatedBy() {
+        return userIdCreatedBy;
+    }
+
+    public void setUserIdCreatedBy(int userIdCreatedBy) {
+        this.userIdCreatedBy = userIdCreatedBy;
+    }
+
+    public int getUserIdUpdatedBy() {
+        return userIdUpdatedBy;
+    }
+
+    public void setUserIdUpdatedBy(int userIdUpdatedBy) {
+        this.userIdUpdatedBy = userIdUpdatedBy;
+    }
+    
+    
+    
     
 }

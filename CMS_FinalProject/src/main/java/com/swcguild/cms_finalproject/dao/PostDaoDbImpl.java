@@ -17,7 +17,13 @@ import com.swcguild.cms_finalproject.dto.Post;
 
 public class PostDaoDbImpl implements PostDao {
 
-	private static final String SQL_INSERT_POST = "INSERT INTO posts (created_date, live_date, take_down_date, post_content, user_id_created_by, user_id_last_update) VALUES (?,?,?,?,1,1)";
+
+	//private static final String SQL_INSERT_POST = "INSERT INTO posts (created_date, live_date, take_down_date, post_content, user_id_created_by, user_id_last_update) VALUES (?,?,?,?,1,1)";
+
+	
+                                                                          //note: IG suggested we change createdDate to automatically fill in value here, vs. in SQLscript  
+	private static final String SQL_INSERT_POST = "INSERT INTO posts (created_date, live_date, take_down_date, post_content) VALUES (NOW(),?,?,?)";
+
 	private static final String SQL_DELETE_POST = "DELETE FROM posts where post_id=?";
 	private static final String SQL_UPDATE_POST = "UPDATE posts SET live_date=?, take_down_date=?, post_content=? WHERE post_id=?";
 	private static final String SQL_SELECT_ALL_POSTS = " SELECT * FROM posts";
@@ -46,8 +52,14 @@ public class PostDaoDbImpl implements PostDao {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Post createPost(Post post) {
-		jdbcTemplate.update(SQL_INSERT_POST, post.getCreatedDate(), post.getUploadDate(), post.getTakeDownDate(),
-				post.getContent());
+		jdbcTemplate.update(SQL_INSERT_POST, 
+				//post.getCreatedDate(), 
+				post.getUploadDate(), 
+				post.getTakeDownDate(), 
+				post.getContent()
+				//post.getHashTags(), 
+				//post.getComments()
+				);
 		post.setPostId(jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Integer.class));
 		return post;
 	}

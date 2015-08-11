@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
-              xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/mvc
@@ -14,52 +14,58 @@
                            http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd"> 
 
-      <tx:annotation-driven />
-	  
-	  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-	  	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-	  	<property name="url" value="jdbc:mysql://localhost:3306/cms" />
-	  	<property name="username" value="root" />
-	  	<property name="password" value="apprentice" />
-	  	<property name="initialSize" value="5" />  <!-- Runs 5 up to 10 threads at one time  -->
-	  	<property name="maxActive" value="10" />
-	  </bean>
-	  
-	  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-	  <property name="dataSource" ref="dataSource" />
-	  </bean>
-
-		<bean id ="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="dataSource" />
-		</bean>
-
-
-    <bean id="PostDao" class="com.swcguild.cms_finalproject.dao.PostDaoDbImpl" >
-    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    <tx:annotation-driven />
+    <!-- Bean definitions go here -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <!--define properties for our bean -->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/KCSM_CMS"/><!--this is the test DB real db is KCSM_CMS-->
+        <property name="username" value="root"/>
+        <property name="password" value="apprentice" />
+        <!--Spring's pool of connections-->
+        <property name="initialSize" value="5" />
+        <property name="maxActive" value="10" />
     </bean>
     
-    <bean id="UserDao" class="com.swcguild.cms_finalproject.dao.userDaoDbImpl" >
-    <property name="jdbcTemplate" ref="jdbcTemplate" />
-    </bean>    
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
     
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    <bean id="postDao" class="com.swcguild.cms_finalproject.dao.PostDaoDbImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    
+    <bean id="userDao" class="com.swcguild.cms_finalproject.dao.UserDaoDbImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    
+<<<<<<< HEAD
     <bean id="HashtagDao" class="com.swcguild.cms_finalproject.dao.HashtagDaoDbImpl" >
     <property name="jdbcTemplate" ref="jdbcTemplate" />
+=======
+    <bean id="hashTagDao" class="com.swcguild.cms_finalproject.dao.HashtagDaoDbImpl" >
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+>>>>>>> 87d4eac079d04a72f3a50e5c762c2b266b104170
     </bean>
     
-    <bean id="CategoryDao" class="com.swcguild.cms_finalproject.dao.CategoryDaoDbImpl" >
-    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    <bean id="categoryDao" class="com.swcguild.cms_finalproject.dao.CategoryDaoDbImpl" >
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>    
     
-    <bean id="StaticPageDao" class="com.swcguild.cms_finalproject.dao.StaticPageDaoDbImpl" >
-    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    <bean id="staticPageDao" class="com.swcguild.cms_finalproject.dao.StaticPageDaoDbImpl" >
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>    
     
-    <bean id="ImageDao" class="com.swcguild.cms_finalproject.dao.ImageDaoDbImpl" >
-    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    <bean id="imageDao" class="com.swcguild.cms_finalproject.dao.ImageDaoDbImpl" >
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>    
     
-    <bean id="CommentDao" class="com.swcguild.cms_finalproject.dao.CommentDaoDbImpl" >
-    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    <bean id="commentDao" class="com.swcguild.cms_finalproject.dao.CommentDaoDbImpl" >
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean> 
     
 </beans>

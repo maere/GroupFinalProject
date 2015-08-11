@@ -19,10 +19,11 @@
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png">
 
     </head>
+    <jsp:include page="navBarWithoutLogin.jsp"></jsp:include>
     <body>
         <div class="container">
             
-            <jsp:include page="navBarWithoutLogin.jsp"></jsp:include>
+            
             <!-- Row start -->
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -44,7 +45,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-1 control-label">live date</label>-->
+                                    <label class="col-md-1 control-label">live date</label>
                                     <div class="col-md-5">
                                         <input type="date" class="form-control" name="placeholder" placeholder="Enter your blog post go live date" type="text">
                                     </div>
@@ -62,32 +63,13 @@
                                 <textarea id="mytextarea" name="mytextarea"></textarea>   
 
                                 
-
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label for="tag-1"></label>
-                                        <input type="text" class="form-control" name="tag-1" placeholder="Tag #1"/><br /><!--the text value of myNotes is what will be sent -->
+                                        <label for="tags"></label>
+                                        <input type="text" class="form-control" name="tags" placeholder="Tag"/><br /><!--the text value of myNotes is what will be sent -->
                                     </div>
 
-                                    <div class="col-md-2">
-                                        <label for="tag-2"></label>
-                                        <input type="text" class="form-control" name="tag-2" placeholder="Tag #2" /><br />
-                                    </div>
-
-                                    <div class="col-md-2">      
-                                        <label for="tag-3"></label>
-                                        <input type="text" class="form-control" name="tag-3" placeholder="Tag #3"/><br />
-                                    </div>
-
-                                    <div class="col-md-2" >
-                                        <label for="tag-4"></label>
-                                        <input type="text" class="form-control" name="tag-4" placeholder="Tag #4"><br />
-                                    </div>
-
-                                    <div class="col-md-2" >
-                                        <label for="tag-5"></label>
-                                        <input type="text" class="form-control" name="tag-5" placeholder="Tag #5"><br />     
-                                    </div>
+                       
                                     <br>
                                     <div class="col-md-2">   
                                         <button type="submit" class="btn btn-primary btn-sm ">Submit</button>
