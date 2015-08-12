@@ -28,7 +28,7 @@
                 <ul class="nav navbar-nav">
                     <li role="presentation"  class="active"><a href="${pageContext.request.contextPath}/home">Home</a></li>
                     <li role="presentation"><a href="${pageContext.request.contextPath}/#">About</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/makeapost">Blog</a></li>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/createpost">Blog</a></li>
                     <li role="presentation"><a href="${pageContext.request.contextPath}/#">Search</a>
 
                     </li>
@@ -50,59 +50,14 @@
                         <div class="panel-body">
 
                             <div class="row">
-                                <div class="col-md-6"><h3>Make a Post</h3>
-                                    <form class="form-horizontal row-border" method="post">
-                                        <div class="form-group">
-                                            <label class="col-md-1 control-label text-left">Title</label>
-                                            <div class="col-md-5">
-                                                <input name="post-title" class="form-control" placeholder="Enter Your Blog Post Title" type="text">
-                                            </div>
-                                            <div class="col-md-6"></div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-md-1 control-label">live date</label>
-                                            <div class="col-md-5">
-                                                <input type="date" class="form-control" name="placeholder" placeholder="Enter your blog post go live date" type="text">
-                                            </div>
-                                            <div class="col-md-6"></div>
-                                        </div>     
-
-                                        <div class="form-group">
-                                            <label class="col-md-1 control-label">Take down date</label>
-                                            <div class="col-md-5">
-                                                <input type="date" class="form-control" name="takeDownDate" placeholder="Enter Your Date to take down the Post" type="text">
-                                            </div>
-                                            <div class="col-md-6"></div>
-                                        </div> 
-
-                                        <textarea id="mytextarea" name="mytextarea"></textarea>   
-
-
-
-                                        <div class="row">
-                                            <!--<div class="col-md-2 col-xs-2 col-sm-2 and.col-lg-2">-->
-
-                                            <!-- might need to do nested row, w. 3 columns for grid at 1, 3, 2-->
-                                            <div class="col-md-2">
-                                                <label for="tag-1"></label>
-                                                <input type="text" class="form-control" name="tag-1" placeholder="Tag #1"/><br /><!--the text value of myNotes is what will be sent -->
-
-                                            </div>
-                                            <br>
-                                            <div class="col-md-2">   
-                                                <button type="submit" class="btn btn-primary btn-sm ">Submit</button>
-                                                <!--<input type="submit" value="Register" /> - this is what the submit button says on it -->
-                                            </div>
-                                        </div><!-- end row-->
-
-                                    </form>
+                                <div class="col-md-6">
+                                     <a href="${pageContext.request.contextPath}/createpost"><h5>Make a Post</h5></a>
                                 </div>
-                                <div class="col-md-6"><h3>Make a Static Page</h3></div>
+                                <div class="col-md-6"><h5>Make a Static Page</h5></div>
                             </div><!-- end row-->
                             <div class="row">
-                                <div class="col-md-6"><h3>Review Comments</h3></div>
-                                <div class="col-md-6"><h3>Create Categories</h3></div>
+                                <div class="col-md-6"><h5>Review Comments</h5></div>
+                                <div class="col-md-6"><h5>Create Categories</h5></div>
                             </div><!-- end row-->
 
                         </div>

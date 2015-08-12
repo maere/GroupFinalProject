@@ -22,7 +22,7 @@ public class PostDaoDbImpl implements PostDao {
 
 	
                                                                           //note: IG suggested we change createdDate to automatically fill in value here, vs. in SQLscript  
-	private static final String SQL_INSERT_POST = "INSERT INTO posts (created_date, live_date, take_down_date, post_content) VALUES (NOW(),?,?,?)";
+	private static final String SQL_INSERT_POST = "INSERT INTO posts (post_title, created_date, live_date, take_down_date, post_content) VALUES (?, NOW(),?,?,?)";
 
 	private static final String SQL_DELETE_POST = "DELETE FROM posts where post_id=?";
 	private static final String SQL_UPDATE_POST = "UPDATE posts SET live_date=?, take_down_date=?, post_content=? WHERE post_id=?";
@@ -53,6 +53,7 @@ public class PostDaoDbImpl implements PostDao {
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Post createPost(Post post) {
 		jdbcTemplate.update(SQL_INSERT_POST, 
+                                post.getPostTitle(),
 				//post.getCreatedDate(), 
 				post.getUploadDate(), 
 				post.getTakeDownDate(), 

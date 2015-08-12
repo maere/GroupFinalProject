@@ -2,7 +2,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `posts`(
-	`post-title` varchar(50) NULL,
+	`post_title` varchar(50) NULL,
 	`post_id` int(11) NOT NULL AUTO_INCREMENT,
 	`created_date` datetime NOT NULL,
 	`live_date` datetime NULL,

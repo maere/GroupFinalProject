@@ -52,9 +52,9 @@ public String displayAdminPanelPage(){
 
  
 //+loadMakeAPostPage(): GET
-@RequestMapping(value="/createPost", method=RequestMethod.GET)
+@RequestMapping(value="/createpost", method=RequestMethod.GET)
 public String displayMakeAPostPage(){ 
-    return "createPost";
+    return "createpost";
 }
 
 //+addPostToDB(): POST
@@ -66,7 +66,6 @@ public String displayMakeAPostPage(){
 }
 
 ////+confirmBlogPost(): POST //Sending back the post object to Ajax to display in a dialog box before confirm -- is this a PUT?
-
 
 
 //+deletePostFromDB(): DELETE

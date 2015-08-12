@@ -7,6 +7,7 @@ package com.swcguild.cms_finalproject.dto;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.util.List;
  */
 public class Post {
     private int postId;
+    private String postTitle;
     private Date createdDate;
     private Date uploadDate;
     private Date takeDownDate;
@@ -25,92 +27,68 @@ public class Post {
     private int userIdCreatedBy;
     private int userIdUpdatedBy;        
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 13 * hash + this.postId;
+        hash = 13 * hash + Objects.hashCode(this.postTitle);
+        hash = 13 * hash + Objects.hashCode(this.createdDate);
+        hash = 13 * hash + Objects.hashCode(this.uploadDate);
+        hash = 13 * hash + Objects.hashCode(this.takeDownDate);
+        hash = 13 * hash + Objects.hashCode(this.content);
+        hash = 13 * hash + Objects.hashCode(this.hashTagIds);
+        hash = 13 * hash + Objects.hashCode(this.commentIds);
+        hash = 13 * hash + this.userIdCreatedBy;
+        hash = 13 * hash + this.userIdUpdatedBy;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Post other = (Post) obj;
+        if (this.postId != other.postId) {
+            return false;
+        }
+        if (!Objects.equals(this.postTitle, other.postTitle)) {
+            return false;
+        }
+        if (!Objects.equals(this.createdDate, other.createdDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.uploadDate, other.uploadDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.takeDownDate, other.takeDownDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.content, other.content)) {
+            return false;
+        }
+        if (!Objects.equals(this.hashTagIds, other.hashTagIds)) {
+            return false;
+        }
+        if (!Objects.equals(this.commentIds, other.commentIds)) {
+            return false;
+        }
+        if (this.userIdCreatedBy != other.userIdCreatedBy) {
+            return false;
+        }
+        if (this.userIdUpdatedBy != other.userIdUpdatedBy) {
+            return false;
+        }
+        return true;
+    }
+
 
     
     
     
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((commentIds == null) ? 0 : commentIds.hashCode());
-		result = prime * result + ((content == null) ? 0 : content.hashCode());
-		result = prime * result + ((createdDate == null) ? 0 : createdDate.hashCode());
-		result = prime * result + ((hashTagIds == null) ? 0 : hashTagIds.hashCode());
-		result = prime * result + postId;
-		result = prime * result + ((takeDownDate == null) ? 0 : takeDownDate.hashCode());
-		result = prime * result + ((uploadDate == null) ? 0 : uploadDate.hashCode());
-		result = prime * result + userIdCreatedBy;
-		result = prime * result + userIdUpdatedBy;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		Post other = (Post) obj;
-		if (commentIds == null) {
-			if (other.commentIds != null) {
-				return false;
-			}
-		} else if (!commentIds.equals(other.commentIds)) {
-			return false;
-		}
-		if (content == null) {
-			if (other.content != null) {
-				return false;
-			}
-		} else if (!content.equals(other.content)) {
-			return false;
-		}
-		if (createdDate == null) {
-			if (other.createdDate != null) {
-				return false;
-			}
-		} else if (!createdDate.equals(other.createdDate)) {
-			return false;
-		}
-		if (hashTagIds == null) {
-			if (other.hashTagIds != null) {
-				return false;
-			}
-		} else if (!hashTagIds.equals(other.hashTagIds)) {
-			return false;
-		}
-		if (postId != other.postId) {
-			return false;
-		}
-		if (takeDownDate == null) {
-			if (other.takeDownDate != null) {
-				return false;
-			}
-		} else if (!takeDownDate.equals(other.takeDownDate)) {
-			return false;
-		}
-		if (uploadDate == null) {
-			if (other.uploadDate != null) {
-				return false;
-			}
-		} else if (!uploadDate.equals(other.uploadDate)) {
-			return false;
-		}
-		if (userIdCreatedBy != other.userIdCreatedBy) {
-			return false;
-		}
-		if (userIdUpdatedBy != other.userIdUpdatedBy) {
-			return false;
-		}
-		return true;
-	}
 
 	public int getPostId() {
         return postId;
@@ -182,6 +160,22 @@ public class Post {
 
     public void setUserIdUpdatedBy(int userIdUpdatedBy) {
         this.userIdUpdatedBy = userIdUpdatedBy;
+    }
+
+    public String getPostTitle() {
+        return postTitle;
+    }
+
+    public void setPostTitle(String postTitle) {
+        this.postTitle = postTitle;
+    }
+
+    public List<Integer> getCommentIds() {
+        return commentIds;
+    }
+
+    public void setCommentIds(List<Integer> commentIds) {
+        this.commentIds = commentIds;
     }
     
     

@@ -57,6 +57,8 @@ public class CMS_FinalProjectJUnitTest {
 	public void addGetDeletePost() throws ParseException 
 	{
 		Post pt = new Post();
+                //added postTitle
+                String post = "My Lastest Thought That Must Be Blogged About";
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString = "2015-08-10";
 		String dateString1 = "2015-08-10";
@@ -68,7 +70,8 @@ public class CMS_FinalProjectJUnitTest {
 //		List comList = new ArrayList<String>();
 //		comList.add("This is a comment test");
 //		comList.add("Khoa is crushing it.");
-//				
+//		
+                pt.setPostTitle(post);
 		pt.setCreatedDate(createDate);
 		pt.setUploadDate(createDate);
 		pt.setTakeDownDate(takeDownDate);
@@ -91,6 +94,7 @@ public class CMS_FinalProjectJUnitTest {
 	public void addUpdatePost() throws ParseException 
 	{
 		Post pt2 = new Post();
+                String post1 = "This is a post title";
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString2 = "2015-08-15";
 		String dateString3 = "2015-08-15";
@@ -100,7 +104,7 @@ public class CMS_FinalProjectJUnitTest {
 //		htList.add("#meh");
 //		List comList = new ArrayList<String>();
 //		comList.add("This is a comment test number 2.");
-				
+		pt2.setPostTitle(post1);
 		pt2.setCreatedDate(createDate);
 		pt2.setUploadDate(createDate);
 		pt2.setTakeDownDate(createDate);
@@ -126,6 +130,7 @@ public class CMS_FinalProjectJUnitTest {
 	public void getAllPosts() throws ParseException 
 	{
 		Post pt3 = new Post();
+                String post2 = " This is a second title";
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString4 = "2015-09-01";
 		String dateString5 = "2015-09-03";
@@ -136,6 +141,7 @@ public class CMS_FinalProjectJUnitTest {
 //		List comList = new ArrayList<String>();
 //		comList.add("comment test number 3.");
 				
+                pt3.setPostTitle(post2);
 		pt3.setCreatedDate(createDate);
 		pt3.setUploadDate(createDate);
 		pt3.setTakeDownDate(takeDownDate);
@@ -147,6 +153,7 @@ public class CMS_FinalProjectJUnitTest {
 		
 		
 		Post pt4 = new Post();
+                String post3 = " This is a third title";
 		SimpleDateFormat dff = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString6 = "2015-09-11";
 		String dateString7 = "2015-09-13";
@@ -157,6 +164,7 @@ public class CMS_FinalProjectJUnitTest {
 //		List comList1 = new ArrayList<String>();
 //		comList1.add("comment test number 3.");
 				
+                pt4.setPostTitle(post3);
 		pt4.setCreatedDate(createDate1);
 		pt4.setUploadDate(createDate1);
 		pt4.setTakeDownDate(takeDownDate1);
