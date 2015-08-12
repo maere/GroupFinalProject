@@ -74,7 +74,6 @@ public class HashtagDaoDbImpl implements HashtagDao {
 			ht.setName(rs.getString("name"));
 			return ht;
 		}
-		
 	}
 	
 
