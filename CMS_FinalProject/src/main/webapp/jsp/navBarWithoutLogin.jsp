@@ -4,7 +4,9 @@
     <ul class="nav navbar-nav">
         <li role="presentation"  class="active"><a href="${pageContext.request.contextPath}/home">Home</a></li>
         <li role="presentation"><a href="${pageContext.request.contextPath}/about">About</a></li>
-        <li role="presentation"><a href="${pageContext.request.contextPath}/createpost">Create post</a></li>
+        <li role="presentation"><a href="${pageContext.request.contextPath}/blog">Blog</a></li>
+        <li role="presentation"><a href="${pageContext.request.contextPath}/staticPage">NewStaticPage</a></li><!-- needs a controller method-->
+        
     </ul>    
 
     <form class="navbar-form navbar-right" role="search">

@@ -9,11 +9,13 @@
         <!-- Bootstrap core CSS -->
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <script type="text/javascript"  src="${pageContext.request.contextPath}/js/tinymce/tinymce.min.js"></script>
-       <!-- <script type="text/javascript">
+       <script type="text/javascript">
             tinymce.init({
-                selector: "#mytextarea"
+                mode: "#mytextarea", 
+                theme: "advanced"
+                
             });
-        </script>-->
+        </script>
 
         <!-- SWC Icon -->
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png">

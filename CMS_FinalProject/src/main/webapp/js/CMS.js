@@ -8,10 +8,10 @@
 $(document).ready(function () {
     loadPosts();
 
-    tinymce.init({
-        mode: "#mytextarea",
-        theme: "advanced"
-    });
+//    tinymce.init({
+//        mode: "#mytextarea",
+//        theme: "advanced"
+//    });
 
      $('#add-post').on('click', function(e) {
         

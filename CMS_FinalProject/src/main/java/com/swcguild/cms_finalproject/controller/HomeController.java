@@ -36,9 +36,21 @@ public class HomeController {
         return "about";
     }
 
+    //NOTE: this is a placeholder for the method immediately following which will dynamically load/create an about us page
+    @RequestMapping(value = "/staticPage", method = RequestMethod.GET)
+    public String staticPagePlaceholder() {
+        return "staticPage";
+    }
+
     @RequestMapping(value = "/staticPage/{pageId}", method = RequestMethod.GET)
     public String staticPage(@PathVariable("pageId") int pageId, Model model) {
         return "staticPage";
+    }
+
+    //NOTE: this is a placeholder for the method below which dynamically load content into an individual post page
+    @RequestMapping(value = "/blog", method = RequestMethod.GET)
+    public String blogPagePlaceholder() {
+        return "individualBlogPostPage";
     }
 
     //added a public GET to get a post page
@@ -50,7 +62,6 @@ public class HomeController {
 
     }
 
- //moved TinyMCE method to the admincontroller
 // need a get allPosts method (not in our UML) //
     @RequestMapping(value = "/posts", method = RequestMethod.GET)
     @ResponseBody
@@ -62,7 +73,7 @@ public class HomeController {
     @RequestMapping(value = "/posts/{categoryId}", method = RequestMethod.GET)
     @ResponseBody
     public List<Post> getPostsByCategory(@PathVariable("categoryTitle") String categoryName) {
-    //need a dao method to Query by category string
+        //need a dao method to Query by category string
         //int categoryId = daoP.getCategoryId("categoryName");
         List<Post> categoryList = daoP.getAllPostsByCategory(Integer.MIN_VALUE);
         return categoryList;
