@@ -18,10 +18,30 @@
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4">Make a static page</div>
-                    <div class="col-md-4">Review comments</div>
-                    <div class="col-md-4">Create categories</div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading clearfix">
+                            <i class="icon-calendar"></i>
+                            <h3 class="panel-title">User Admin Functions</h3>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                     <a href="${pageContext.request.contextPath}/createpost"><h5>Make a Post</h5></a>
+                                </div>
+                                <div class="col-md-6"><h5>Make a Static Page</h5></div>
+                            </div><!-- end row-->
+                            <div class="row">
+                                <div class="col-md-6"><h5>Review Comments</h5></div>
+                                <div class="col-md-6"><h5>Create Categories</h5></div>
+                            </div><!-- end row-->
+
+                        </div>
+                    </div><!-- end panel-->
                 </div>
+            </div><!-- Panel Row end -->
             </div>
 
             <div class="container-fluid">
