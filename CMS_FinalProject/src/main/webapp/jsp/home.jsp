@@ -16,22 +16,23 @@
     </head>
     <body>
 
-      <jsp:include page="navBarWithLogin.jsp"></jsp:include> 
+        <jsp:include page="navBarWithLogin.jsp"></jsp:include> 
             <div class="col-md-4-center">
                 <h2 class="text-center">Company Home Page</h2>
             </div>
 
 
             <div class="col-md-4-center">
-                <h3 class="text-center">Post 1</h3>
+                <h3 class="text-center">Welcome the RC BattleBots Website! </h3>
                 <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
             </div>
 
             <!-- Placed at the end of the document so the pages load faster -->
-              <script src="${pageContext.request.contextPath}/js/dropdownlogin.js"></script>
             <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/dropdownlogin.js"></script>
+
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-      
+
 
     </body>
 </html>

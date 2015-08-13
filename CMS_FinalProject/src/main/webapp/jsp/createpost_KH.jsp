@@ -9,7 +9,7 @@
         <!-- Bootstrap core CSS -->
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <script type="text/javascript"  src="${pageContext.request.contextPath}/js/tinymce/tinymce.min.js"></script>
-       <!-- <script type="text/javascript">
+        <!--<script type="text/javascript">
             tinymce.init({
                 selector: "#mytextarea"
             });
@@ -18,14 +18,10 @@
         <!-- SWC Icon -->
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png">
 
+        <jsp:include page="navBarWithoutLogin.jsp"></jsp:include>
     </head>
-    <jsp:include page="navBarWithoutLogin.jsp"></jsp:include>
-    <body>
-        <div class="container">
-            
-            
-            <!-- Row start -->
-            <div class="row">
+
+ <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading clearfix">
@@ -82,15 +78,16 @@
                         </div>
                     </div>
                 </div>
+
+            <!--<div class="row">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" name="tag-1" placeholder="Tag #1"/>
+                    <button type="submit" class="btn btn-secondary btn-sm ">Add New Tag</button>
+                </div>
             </div>
-
-            <!-- Placed at the end of the document so the pages load faster -->
-            <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
-            <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-            <script src="${pageContext.request.contextPath}/js/CMS.js"></script> <!-- addBlogPost-->
+            <div class="row"> 
+                <button class="btn btn-primary pull-right btn-sm RbtnMargin" type="button">Submit Tag</button>
+            </div>-->
 
 
-    </body>
 </html>
-
-

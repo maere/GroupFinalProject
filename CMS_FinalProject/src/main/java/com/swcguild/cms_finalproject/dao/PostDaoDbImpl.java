@@ -126,6 +126,7 @@ public class PostDaoDbImpl implements PostDao {
 			Post post = new Post();
 			post.setPostId(rs.getInt("post_id"));
 			post.setCreatedDate(rs.getDate("created_date"));
+                        post.setPostTitle(rs.getString("post_title"));
 			post.setUploadDate(rs.getDate("live_date"));
 			post.setTakeDownDate(rs.getDate("take_down_date"));
 			post.setContent(rs.getString("post_content"));
