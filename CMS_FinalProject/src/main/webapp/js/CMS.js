@@ -7,16 +7,10 @@
 
 $(document).ready(function () {
     loadPosts();
-
-//    tinymce.init({
-//        mode: "#mytextarea",
-//        theme: "advanced"
-//    });
-
     $('#add-post').on('click', function (e) {
 
         e.preventDefault();
-
+        tinyMCE.triggerSave();
         $.ajax({
             type: 'POST',
             url: 'post',
@@ -38,7 +32,6 @@ $(document).ready(function () {
                 });
     });
 
-    $('#textarea_id').tinymce().save();
 });
 
 function clearPostTable() {
