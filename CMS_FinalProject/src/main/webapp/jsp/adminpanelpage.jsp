@@ -213,6 +213,9 @@
                                             <input type="text" class="form-control" id="edit-content" placeholder="Content" />
                                         </div>
                                     </div>
+                                    
+                                    
+                                    
                                     <!--<div class="form-group">
                                         <label for="edit-other" class="col-md-4 control-label">Placeholder for Additional Field Data</label>
                                         <div class="col-md-8">
@@ -223,7 +226,7 @@
                                         <div class="col-md-offset-4 col-md-8"> <!--why does it need an id for both? one for hte button, one for the form? or edit-dvd-method? -->
                                             <button type="submit" id="edit-button" class="btn btn-default" data-dismiss="modal">Edit Post Data</button>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                            <input type="hidden" id="edit-post-id" /><!--this hidden button is what allows us to send this info to the server and allows us to grab the object to edit -->
+                                            <input type="hidden" id="edit-post-id"/><!--this hidden button is what allows us to send this info to the server and allows us to grab the object to edit -->
                                         </div>
                                     </div>
                                 </form>

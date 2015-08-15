@@ -12,7 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <script type="text/javascript" src="<your installation path>/tinymce/tinymce.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
+        <script language="javascript" type="text/javascript" src="${pageContext.request.contextPath}/js/tinymce/tinymce.min.js"><jsp:text /></script> 
         <script type="text/javascript">
             tinymce.init({
                 selector: "h1.editable",

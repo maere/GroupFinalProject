@@ -88,5 +88,16 @@ public class HomeController {
         List<Post> tagList = daoP.getAllPostsByHashTag(Integer.BYTES);
         return tagList;
     }
+    
+    //'sandbox is a route for testing things out on pages
+    
+    @RequestMapping(value="/sandbox", method=RequestMethod.GET)
+    public String sandBoxPage(){
+        return "sandbox";
+    }
+    @RequestMapping(value="/sandbox2", method=RequestMethod.GET)
+    public String sandBoxPage2(){
+        return "sandbox2";
+    }
 
 }
