@@ -16,7 +16,7 @@
     </head>
     <jsp:include page="navBarWithoutLogin.jsp"></jsp:include>
         <body>
-            
+
             <div class="container">
                 <!-- Row start -->
                 <div class="row">
@@ -61,22 +61,21 @@
                                         <input type="text" class="form-control" name="hashTagIds" path="hashtagIds" placeholder="Tag"/><br />
                                     </div>-->
 
-
                                     <br>
                                     <div class="col-md-12" class="form-group">   
                                         <textarea id="mytextarea" name="mytextarea" class="form-control" path="mytextarea">${param.content}</textarea>
-                                        <button type="submit" id="add-post" name="add-post" class="btn btn-primary btn-sm ">Submit</button>
-                                        <!--<input type="submit" value="Register" /> - this is what the submit button says on it -->
-                                    </div>
-                            </div><!-- end row-->
+                                    <button type="submit" id="add-post" name="add-post" class="btn btn-primary btn-sm ">Submit</button>
+                                    <!--<input type="submit" value="Register" /> - this is what the submit button says on it -->
+                                </div>
+                        </div><!-- end row-->
 
-                            </form>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Placed at the end of the document so the pages load faster -->
+        <!-- Placed at the end of the document so the pages load faster -->
         <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/createPost.js"></script> <!-- addBlogPost-->
