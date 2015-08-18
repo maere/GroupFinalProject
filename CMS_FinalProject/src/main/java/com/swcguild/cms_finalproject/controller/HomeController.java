@@ -5,8 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.swcguild.cms_finalproject.dao.PostDao;
+import com.swcguild.cms_finalproject.dao.StaticPageDao;
 import com.swcguild.cms_finalproject.dao.UserDao;
 import com.swcguild.cms_finalproject.dto.Post;
+import com.swcguild.cms_finalproject.dto.StaticPage;
+
 import java.util.List;
 import javax.inject.Inject;
 import org.springframework.ui.Model;
@@ -18,11 +21,13 @@ public class HomeController {
 
     private UserDao daoU;
     private PostDao daoP;
-
+    private StaticPageDao daoSP;
+    
     @Inject
-    public HomeController(PostDao daoP, UserDao daoU) {
+    public HomeController(PostDao daoP, UserDao daoU, StaticPageDao daoSP) {
         this.daoP = daoP;
         this.daoU = daoU;
+        this.daoSP = daoSP;
 
     }
 
@@ -36,15 +41,18 @@ public class HomeController {
         return "about";
     }
 
-    //NOTE: this is a placeholder for the method immediately following which will dynamically load/create an about us page
-    @RequestMapping(value = "/staticPage", method = RequestMethod.GET)
-    public String staticPagePlaceholder() {
-        return "staticPage";
-    }
+//    //NOTE: this is a placeholder for the method immediately following which will dynamically load/create an about us page
+//    @RequestMapping(value = "/staticPage", method = RequestMethod.GET)
+//    public String staticPagePlaceholder() {
+//        return "staticPage";
+//    }
 
     @RequestMapping(value = "/staticPage/{pageId}", method = RequestMethod.GET)
     public String staticPage(@PathVariable("pageId") int pageId, Model model) {
-        return "staticPage";
+        
+    StaticPage sp1 = daoSP.getStaticPageById(pageId);
+    	model.addAttribute("staticPage", sp1);
+    	return  "staticPage"; //"staticPage/{pageId}";
     }
 
     //NOTE: this is a placeholder for the method below which dynamically load content into an individual post page

@@ -1,6 +1,17 @@
 $(document).ready(function () {
     tinymce.init({
-        selector: "#mytextarea"
+        selector: "#mytextarea",
+        	
+          //  selector: '#my_editor',
+            plugins: ["image"],
+            file_browser_callback: function(field_name, url, type, win) 
+            {
+                if(type=='image') $('#my_form input').click();
+            }        	
+        	
+        	
+        	
+        	
     });
 
     $('#add-post').on('click', function (e) {

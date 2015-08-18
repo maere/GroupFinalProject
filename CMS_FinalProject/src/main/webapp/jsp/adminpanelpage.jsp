@@ -243,7 +243,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/dropdownlogin.js"></script>
-    <script src="${pageContext.request.contextPath}/js/CMS.js"></script>
+    <script src="${pageContext.request.contextPath}/js/adminPanelPage.js"></script>
 </body>
 </html>
 

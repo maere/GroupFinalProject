@@ -6,8 +6,10 @@
 package com.swcguild.cms_finalproject.controller;
 
 import com.swcguild.cms_finalproject.dao.PostDao;
+import com.swcguild.cms_finalproject.dao.StaticPageDao;
 import com.swcguild.cms_finalproject.dao.UserDao;
 import com.swcguild.cms_finalproject.dto.Post;
+import com.swcguild.cms_finalproject.dto.StaticPage;
 import com.swcguild.cms_finalproject.dto.User;
 import java.util.List;
 import javax.inject.Inject;
@@ -31,13 +33,14 @@ public class AdminController {
     
     private PostDao daoP;
     private UserDao daoU;
+    private StaticPageDao daoSP;
     
     
     @Inject
-    public AdminController(PostDao daoP, UserDao daoU){ //StaticPageDao daoSP, CommentDao daoCmt, etc.
+    public AdminController(PostDao daoP, UserDao daoU, StaticPageDao daoSP){ //StaticPageDao daoSP, CommentDao daoCmt, etc.
         this.daoP = daoP;
         this.daoU = daoU;
-  
+        this.daoSP = daoSP;
     }
     
 //do we need this one? Is in HomeController --> +loadHomePage(): GET 
@@ -47,8 +50,6 @@ public class AdminController {
 public String displayAdminPanelPage(){
     return "adminpanelpage";
 }
-
-//+logInUser():PUT //moved login to the Home Controller
 
  
 //+loadMakeAPostPage(): GET
@@ -65,7 +66,6 @@ public String displayMakeAPostPage(){
     return post;
 }
 
-////+confirmBlogPost(): POST //Sending back the post object to Ajax to display in a dialog box before confirm -- is this a PUT?
 
 
 //+deletePostFromDB(): DELETE
@@ -85,6 +85,27 @@ public void putPost(@PathVariable("postId") int postId, @RequestBody Post post){
 }
 
 
+
+//NOTE: this is a placeholder for the method immediately following which will dynamically load/create an about us page
+@RequestMapping(value = "/createstaticpage", method = RequestMethod.GET)
+public String staticPagePlaceholder() {
+    return "createstaticpage";
+}
+
+@RequestMapping(value="/staticPage", method=RequestMethod.POST)
+@ResponseStatus(HttpStatus.CREATED)
+@ResponseBody public StaticPage createStaticPage(@RequestBody StaticPage staticPage) 
+{
+	daoSP.createStaticPage(staticPage);
+	return staticPage;
+}
+
+@RequestMapping(value="staticPage/{pageId}", method=RequestMethod.DELETE)
+@ResponseStatus(HttpStatus.NO_CONTENT)
+public void deleteStaticPage(@PathVariable("pageId") int pageId) 
+{
+	daoSP.deleteStaticPage(pageId);
+}
 
 
 //staticPages() POST  //this is now a separate set of methods for adding, deleting, updating, static pages
