@@ -76,13 +76,12 @@ CREATE TABLE IF NOT EXISTS `categories`(
  	PRIMARY KEY (`static_page_id`)
  ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
-  CREATE TABLE IF NOT EXISTS `images`(
-  	`image_id` int(11) NOT NULL AUTO_INCREMENT,
-  	`image_name` varchar(60) NOT NULL,
-  	`image_type` varchar(10) NOT NULL,
-  	`image_data` mediumblob NOT NULL,
-  	PRIMARY KEY (`image_id`)
- ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+CREATE TABLE IF NOT EXISTS `images` (
+ `image_id` int(11) NOT NULL AUTO_INCREMENT,
+ `image` longblob NOT NULL,
+ PRIMARY KEY (`image_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
+
 
 -- constraints
 

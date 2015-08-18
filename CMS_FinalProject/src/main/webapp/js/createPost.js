@@ -1,6 +1,20 @@
 $(document).ready(function () {
 
     tinymce.init({
+<<<<<<< HEAD
+        selector: "#mytextarea",
+        	
+          //  selector: '#my_editor',
+            plugins: ["image"],
+            file_browser_callback: function(field_name, url, type, win) 
+            {
+                if(type=='image') $('#my_form input').click();
+            }        	
+        	
+        	
+        	
+        	
+=======
         mode: "#mytextarea", //removed selector:
         selector: "textarea",
         plugins: [
@@ -9,6 +23,7 @@ $(document).ready(function () {
             "insertdatetime media table contextmenu paste"
         ],
         toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+>>>>>>> origin
     });
 
     $('#add-post').on('click', function (e) {

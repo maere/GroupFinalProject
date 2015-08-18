@@ -19,7 +19,7 @@
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <!--define properties for our bean -->
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/KCSM_CMS"/><!--this is the test DB real db is KCSM_CMS-->
+        <property name="url" value="jdbc:mysql://localhost:3306/KCSM_CMS"/>
         <property name="username" value="root"/>
         <property name="password" value="apprentice" />
         <!--Spring's pool of connections-->
@@ -43,9 +43,8 @@
         <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
     
-    <bean id="hashTagDao" class="com.swcguild.cms_finalproject.dao.HashtagDaoDbImpl" >
+    <bean id="hashtagDao" class="com.swcguild.cms_finalproject.dao.HashtagDaoDbImpl" >
         <property name="jdbcTemplate" ref="jdbcTemplate" />
-
     </bean>
     
     <bean id="categoryDao" class="com.swcguild.cms_finalproject.dao.CategoryDaoDbImpl" >
