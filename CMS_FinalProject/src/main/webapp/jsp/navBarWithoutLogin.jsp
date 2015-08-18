@@ -9,13 +9,13 @@
 <div class="navbar" id="navbar">
     <ul class="nav navbar-nav">
     
-    <c:forEach>
+<%--     <c:forEach> --%>
         <li role="presentation"  class="active"><a href="${pageContext.request.contextPath}/home">Home</a></li>
         <li role="presentation"><a href="${pageContext.request.contextPath}/about">About</a></li>
         <li role="presentation"><a href="${pageContext.request.contextPath}/blog">Blog</a></li>
         <li role="presentation"><a href="${pageContext.request.contextPath}/createstaticpage">NewStaticPage</a></li>
         <li	role="presentation"><a href="${pageContext.request.contextPath}/blank"></a>
-     </c:forEach>   
+<%--      </c:forEach>    --%>
 
 <%-- <li role="presentation"><a id="site-blog" href="${pageContext.request.contextPath}/blog">Blog</a></li> --%>
 <%-- <li role="presentation"><a href="${pageContext.request.contextPath}/staticPage">NewStaticPage</a></li> --%>
