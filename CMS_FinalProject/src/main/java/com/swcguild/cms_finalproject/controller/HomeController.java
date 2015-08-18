@@ -57,12 +57,19 @@ public class HomeController {
 
     //NOTE: this is a placeholder for the method below which dynamically load content into an individual post page
     @RequestMapping(value = "/blog", method = RequestMethod.GET)
-    public String blogPagePlaceholder() {
-        return "individualBlogPostPage";
+    public String blogPageMain() {
+        return "blog";
+    }
+    
+    @RequestMapping(value="/latestpost", method = RequestMethod.GET)
+    @ResponseBody
+    public Post latestBlogPost(){
+        Post selectedPost = daoP.getMostRecentPost();
+        return selectedPost;
     }
 
     //added a public GET to get a post page
-    @RequestMapping(value = "post/{postId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/post/{postId}", method = RequestMethod.GET)
     @ResponseBody
     public Post retrieveBlogPostPage(@PathVariable("postId") int postId) {
         Post selectedPost = daoP.getPostById(postId);
@@ -103,9 +110,9 @@ public class HomeController {
     public String sandBoxPage(){
         return "sandbox";
     }
-    @RequestMapping(value="/sandbox2", method=RequestMethod.GET)
-    public String sandBoxPage2(){
-        return "sandbox2";
+    @RequestMapping(value="/blogpostlist", method=RequestMethod.GET)
+    public String readPost(){
+        return "blogpostlist";
     }
 
 }

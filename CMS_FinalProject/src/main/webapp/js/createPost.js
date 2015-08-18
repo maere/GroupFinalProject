@@ -1,5 +1,7 @@
 $(document).ready(function () {
+
     tinymce.init({
+<<<<<<< HEAD
         selector: "#mytextarea",
         	
           //  selector: '#my_editor',
@@ -12,12 +14,24 @@ $(document).ready(function () {
         	
         	
         	
+=======
+        mode: "#mytextarea", //removed selector:
+        selector: "textarea",
+        plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste"
+        ],
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+>>>>>>> origin
     });
 
     $('#add-post').on('click', function (e) {
 
         e.preventDefault();
+
         tinyMCE.triggerSave();
+
         $.ajax({
             type: 'POST',
             url: 'post',
@@ -38,5 +52,9 @@ $(document).ready(function () {
                     $(location).attr('href', 'adminpanelpage');
                 });
     });
+
 });
+
+
+
 
