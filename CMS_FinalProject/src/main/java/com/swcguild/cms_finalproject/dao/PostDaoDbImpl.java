@@ -36,6 +36,8 @@ public class PostDaoDbImpl implements PostDao {
 
     private static final String SQL_SELECT_POST_HASHTAG_HASHTAG_ID_BY_POST_ID = "SELECT hashtag_id FROM post_hashtag_bridge WHERE post_id=?";
 
+    private static final String SQL_SELECT_MOST_RECENT_POST = "SELECT * FROM `posts` WHERE live_date <= NOW() ORDER BY live_date DESC LIMIT 0,1";
+    
     private JdbcTemplate jdbcTemplate;
 
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
@@ -75,6 +77,18 @@ public class PostDaoDbImpl implements PostDao {
         } catch (EmptyResultDataAccessException ex) {
             return null;
         }
+    }
+    
+    @Override
+    public Post getMostRecentPost(){
+        
+        try{
+             return jdbcTemplate.queryForObject(SQL_SELECT_MOST_RECENT_POST, new PostMapper());
+        }
+        catch(EmptyResultDataAccessException ex){
+            return null;
+        }
+       
     }
 
     @Override

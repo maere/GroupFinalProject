@@ -23,7 +23,7 @@ function fillPostTable(postList, status) {
         pTable.append($('<tr>').append($('<td>').append($('<a>').attr({
             'data-post-id': post.postId,
             'data-toggle': 'modal',
-            'data-target': '#detailsModal' //this is how we grab the modal, on this click event, for this data object
+            'data-target': '#blog-post-id' //this is how we grab the modal, on this click event, for this data object
         }).text(post.postTitle)))
                 .append($('<td>').text(post.createdDate))
                 .append($('<td>').append($('<a>').attr({

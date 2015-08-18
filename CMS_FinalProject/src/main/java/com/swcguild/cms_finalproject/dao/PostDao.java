@@ -15,4 +15,7 @@ public interface PostDao {
 	public List<Post> getAllPostsByCategory(Integer categoryId); // double check  List<String>categories
 	public List<Post> getAllPostsByHashTag(Integer hashTagId); 	//  List<String>hashTags
 	public List<Hashtag> getAllHashTagsByPostId(Integer postId);
+        
+        //additional methods
+        public Post getMostRecentPost();
 }
