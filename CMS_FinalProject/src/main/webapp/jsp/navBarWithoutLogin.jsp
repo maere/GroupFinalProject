@@ -36,9 +36,6 @@
 	<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
 	
-	
-<%--     <script type="text/javascript"> --%>
-<%--     var contextRoot = ${pageContext.request.contextPath};</script> --%>
 
     <script type="text/javascript">
     var contextRoot = "${pageContext.request.contextPath}";</script>
