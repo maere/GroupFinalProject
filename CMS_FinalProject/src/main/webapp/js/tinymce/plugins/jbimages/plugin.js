@@ -16,7 +16,7 @@ tinymce.PluginManager.add('jbimages', function(editor, url) {
 	function jbBox() {
 		editor.windowManager.open({
 			title: 'Upload an image',
-			file : url + '/dialog-v4.htm',
+			file : 'displayUploadForm', //url + '/dialog-v4.htm',
 			width : 350,
 			height: 135,
 			buttons: [{

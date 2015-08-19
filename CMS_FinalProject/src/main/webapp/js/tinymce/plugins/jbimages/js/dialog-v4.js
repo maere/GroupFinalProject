@@ -38,6 +38,7 @@ var jbImagesDialog = {
 	},
 	
 	uploadFinish : function(result) {
+            console.log(result);
 		if (result.resultCode == 'failed')
 		{
 			window.clearTimeout(this.timeoutStore);
