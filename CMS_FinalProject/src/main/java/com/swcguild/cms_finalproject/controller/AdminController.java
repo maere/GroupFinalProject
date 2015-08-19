@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,98 +31,91 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 @Controller
 public class AdminController {
-    
-    private PostDao daoP;
-    private UserDao daoU;
-    private StaticPageDao daoSP;
-    
-    
-    @Inject
-    public AdminController(PostDao daoP, UserDao daoU, StaticPageDao daoSP){ //StaticPageDao daoSP, CommentDao daoCmt, etc.
-        this.daoP = daoP;
-        this.daoU = daoU;
-        this.daoSP = daoSP;
-    }
-    
-//do we need this one? Is in HomeController --> +loadHomePage(): GET 
 
-//added a GET method for adminpanelpage
-@RequestMapping(value="/adminpanelpage", method=RequestMethod.GET)
-public String displayAdminPanelPage(){
-    return "adminpanelpage";
-}
+	private PostDao daoP;
+	private UserDao daoU;
+	private StaticPageDao daoSP;
 
- 
-//+loadMakeAPostPage(): GET
-@RequestMapping(value="/createpost", method=RequestMethod.GET)
-public String displayMakeAPostPage(){ 
-    return "createpost";
-}
+	@Inject
+	public AdminController(PostDao daoP, UserDao daoU, StaticPageDao daoSP) { // StaticPageDao
+																				// daoSP,
+																				// CommentDao
+																				// daoCmt,
+																				// etc.
+		this.daoP = daoP;
+		this.daoU = daoU;
+		this.daoSP = daoSP;
+	}
 
-//+addPostToDB(): POST
-@RequestMapping(value="/post", method=RequestMethod.POST)
-@ResponseStatus(HttpStatus.CREATED)
-@ResponseBody public Post createThisPost(@RequestBody Post post){ //@Valid -- need to add validation to DTO
-    daoP.createPost(post);
-    return post;
-}
+	// do we need this one? Is in HomeController --> +loadHomePage(): GET
 
+	// added a GET method for adminpanelpage
+	@RequestMapping(value = "/adminpanelpage", method = RequestMethod.GET)
+	public String displayAdminPanelPage(Model model) {
+		generateNavBar(model);
+		return "adminpanelpage";
+	}
 
+	// +loadMakeAPostPage(): GET
+	@RequestMapping(value = "/createpost", method = RequestMethod.GET)
+	public String displayMakeAPostPage(Model model) {
+		generateNavBar(model);
+		return "createpost";
+	}
 
-//+deletePostFromDB(): DELETE
-@RequestMapping(value="/post/{postId}", method=RequestMethod.DELETE)
-@ResponseStatus(HttpStatus.NO_CONTENT)
-public void deletePost(@PathVariable("postId") int postId){
-    daoP.removePost(postId);
-}
+	// +addPostToDB(): POST
+	@RequestMapping(value = "/post", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	@ResponseBody
+	public Post createThisPost(@RequestBody Post post) { // @Valid -- need to
+															// add validation to
+															// DTO
+		daoP.createPost(post);
+		return post;
+	}
 
+	// +deletePostFromDB(): DELETE
+	@RequestMapping(value = "/post/{postId}", method = RequestMethod.DELETE)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deletePost(@PathVariable("postId") int postId) {
+		daoP.removePost(postId);
+	}
 
-//+updatePostInDB(): PUT
-@RequestMapping(value="/post/{postId}", method=RequestMethod.PUT)
-@ResponseStatus(HttpStatus.NO_CONTENT)
-public void putPost(@PathVariable("postId") int postId, @RequestBody Post post){
-    post.setPostId(postId);
-    daoP.updatePost(post);
-}
+	// +updatePostInDB(): PUT
+	@RequestMapping(value = "/post/{postId}", method = RequestMethod.PUT)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void putPost(@PathVariable("postId") int postId, @RequestBody Post post) {
+		post.setPostId(postId);
+		daoP.updatePost(post);
+	}
 
-
-
-//NOTE: this is a placeholder for the method immediately following which will dynamically load/create an about us page
-@RequestMapping(value = "/createstaticpage", method = RequestMethod.GET)
-public String staticPagePlaceholder() {
-    return "createstaticpage";
-}
-
-@RequestMapping(value="/staticPage", method=RequestMethod.POST)
-@ResponseStatus(HttpStatus.CREATED)
-@ResponseBody public StaticPage createStaticPage(@RequestBody StaticPage staticPage) 
-{
-	daoSP.createStaticPage(staticPage);
-	return staticPage;
-}
-
-@RequestMapping(value="staticPage/{pageId}", method=RequestMethod.DELETE)
-@ResponseStatus(HttpStatus.NO_CONTENT)
-public void deleteStaticPage(@PathVariable("pageId") int pageId) 
-{
-	daoSP.deleteStaticPage(pageId);
-}
+	// NOTE: this is a placeholder for the method immediately following which
+	// will dynamically load/create an about us page
+	@RequestMapping(value = "/createstaticpage", method = RequestMethod.GET)
+	public String staticPagePlaceholder(Model model) {
+		generateNavBar(model);
+		return "createstaticpage";
+	}
 
 
-//staticPages() POST  //this is now a separate set of methods for adding, deleting, updating, static pages
+	@RequestMapping(value = "/staticPage", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	@ResponseBody
+	public StaticPage createStaticPage(@RequestBody StaticPage staticPage, Model model) {
+		generateNavBar(model);
+		daoSP.createStaticPage(staticPage);
+		return staticPage;
+	}
 
-//again, don't think we need this? //+loadHomePage(): GET 
+	@RequestMapping(value = "staticPage/{pageId}", method = RequestMethod.DELETE)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteStaticPage(@PathVariable("pageId") int pageId) {
+		daoSP.deleteStaticPage(pageId);
+	}
 
+	private void generateNavBar(Model model) {
+		List<StaticPage> spAll = daoSP.getAllStaticPages();
+		model.addAttribute("staticPageAll", spAll);
+	}
 
-//    //Our original "hits the controller" method for TinyMCE
-//    @RequestMapping(value="/makeapost", method=RequestMethod.POST)
-//    public void receiveTinyMce(HttpServletRequest request)
-//    {
-//        String result = request.getParameter("mytextarea");
-//        System.out.println(result);
-//    }
-    
-    
-
-    
 }

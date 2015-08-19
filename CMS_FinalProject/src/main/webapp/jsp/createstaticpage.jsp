@@ -28,6 +28,22 @@
 
 						<form class="form-horizontal row-border" role="form">
 
+<!-- 					<div class="col-md-8 col-sm-8 col-xs-8"> -->
+<!-- 						<table> -->
+<!-- 							<tr> -->
+<!-- 								<td> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<form:select  name="staticPageAll"> -->
+<%-- 										<options items="${staticPageAll}"/> --%>
+<!-- 									</form:select> -->
+<!-- 								<input type="button" value="Delete"> -->
+<!-- 								</div> -->
+<!-- 								</td>	 -->
+<!-- 							</tr>				 -->
+<!-- 						</table> -->
+<!-- 				  	</div> -->
+
+
 							<div class="form-group">
 								<div for="pageTitle">
 									<input type="text" id="add-page-title" name="pageTitle"
@@ -36,6 +52,7 @@
 								</div>
 								<div class="col-md-6"></div>
 							</div>
+
 
 
 							<div class="col-md-12" class="form-group">

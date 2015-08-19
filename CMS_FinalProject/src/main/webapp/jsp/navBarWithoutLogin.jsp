@@ -6,21 +6,20 @@
     <link href="${pageContext.request.contextPath}/css/navBar.css" rel="stylesheet">
 
 
-<div class="navbar" id="navbar">
+<nav class="navbar" id="navbar">
     <ul class="nav navbar-nav">
     
-<%--     <c:forEach> --%>
         <li role="presentation"  class="active"><a href="${pageContext.request.contextPath}/home">Home</a></li>
         <li role="presentation"><a href="${pageContext.request.contextPath}/about">About</a></li>
         <li role="presentation"><a href="${pageContext.request.contextPath}/blog">Blog</a></li>
-        <li role="presentation"><a href="${pageContext.request.contextPath}/createstaticpage">NewStaticPage</a></li>
-        <li	role="presentation"><a href="${pageContext.request.contextPath}/blank"></a>
-<%--      </c:forEach>    --%>
+        <li role="presentation"><a href="${pageContext.request.contextPath}/createstaticpage">NewStaticPage</a></li> 
 
-<%-- <li role="presentation"><a id="site-blog" href="${pageContext.request.contextPath}/blog">Blog</a></li> --%>
-<%-- <li role="presentation"><a href="${pageContext.request.contextPath}/staticPage">NewStaticPage</a></li> --%>
+
         
-
+        
+        <c:forEach items="${staticPageAll}" var="staticPage">
+        <li role="presentation"><a href="${pageContext.request.contextPath}/staticPage/${staticPage.staticPageId}">${staticPage.pageTitle}</a></li>
+		</c:forEach>
     </ul>    
 
     <form class="navbar-form navbar-right" role="search">
@@ -30,6 +29,13 @@
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 
-    <script type="text/javascript">
-    var contextRoot = ${pageContext.request.contextPath};</script>
-</div>
+</nav>
+
+	<script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/dropdownlogin.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
+	
+	
+<%--     <script type="text/javascript"> --%>
+<%--     var contextRoot = ${pageContext.request.contextPath};</script> --%>

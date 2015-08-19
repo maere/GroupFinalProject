@@ -30,9 +30,7 @@ $(document).ready(function () {
     $('#add-static-page').on('click', function (e) {
 
         e.preventDefault();
-        
-   	    //var pageId = document.getElementById('static-page-id');       
-        //$('pageId').attr({'data-static-page-id': staticPage.staticPageId});
+
         
         tinyMCE.triggerSave();
         $.ajax({
@@ -48,9 +46,10 @@ $(document).ready(function () {
             },
             dataType: 'json'
         })
-                .success(function () {  
+                .success(function (data) {  
+           
                     alert("success");
-                    $(location).attr('href', 'staticPage/${staticPageId}');
+                    window.location = "staticPage/" + data.staticPageId;  
                 });
     });
 });

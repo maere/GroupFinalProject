@@ -32,12 +32,14 @@ public class HomeController {
     }
 
     @RequestMapping(value = {"/", "/home", "/index"}, method = RequestMethod.GET)
-    public String homePage() {
+    public String homePage(Model model) {
+    	generateNavBar(model);
         return "home";
     }
 
     @RequestMapping(value = "/about", method = RequestMethod.GET)
-    public String aboutPage() {
+    public String aboutPage(Model model) {
+    	generateNavBar(model);
         return "about";
     }
 
@@ -48,22 +50,33 @@ public class HomeController {
 //    }
 
     @RequestMapping(value = "/staticPage/{pageId}", method = RequestMethod.GET)
-    public String staticPage(@PathVariable("pageId") int pageId, Model model) {
-        
-    StaticPage sp1 = daoSP.getStaticPageById(pageId);
+    public String staticPage(@PathVariable("pageId") int pageId, Model model) 
+    {
+    	generateNavBar(model);
+    	StaticPage sp1 = daoSP.getStaticPageById(pageId);
     	model.addAttribute("staticPage", sp1);
-    	return  "staticPage"; //"staticPage/{pageId}";
+    	return  "staticPage"; 
+    }
+    
+    @RequestMapping(value="/staticPages/{allPages}", method=RequestMethod.GET)
+    public String staticPages(@PathVariable("allPages") List<StaticPage> allPages, Model model)
+    {
+    	List<StaticPage> spAll = daoSP.getAllStaticPages();
+    	model.addAttribute("staticPageAll", spAll);
+    	return "staticPageAll";
     }
 
     //NOTE: this is a placeholder for the method below which dynamically load content into an individual post page
     @RequestMapping(value = "/blog", method = RequestMethod.GET)
-    public String blogPageMain() {
+    public String blogPageMain(Model model) {
+    	generateNavBar(model);
         return "blog";
     }
     
     @RequestMapping(value="/latestpost", method = RequestMethod.GET)
     @ResponseBody
-    public Post latestBlogPost(){
+    public Post latestBlogPost(Model model){
+    	generateNavBar(model);
         Post selectedPost = daoP.getMostRecentPost();
         return selectedPost;
     }
@@ -111,8 +124,17 @@ public class HomeController {
         return "sandbox";
     }
     @RequestMapping(value="/blogpostlist", method=RequestMethod.GET)
-    public String readPost(){
+    public String readPost(Model model){
+    	generateNavBar(model);
         return "blogpostlist";
+    }
+    
+    
+    
+    private void generateNavBar(Model model) 
+    {
+    	List<StaticPage> spAll = daoSP.getAllStaticPages();
+    	model.addAttribute("staticPageAll", spAll);
     }
 
 }
