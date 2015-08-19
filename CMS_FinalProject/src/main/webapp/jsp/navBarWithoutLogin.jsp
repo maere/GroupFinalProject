@@ -31,5 +31,5 @@
     </form>
 
     <script type="text/javascript">
-    var contextRoot = ${pageContext.request.contextPath};</script>
+    var contextRoot = "${pageContext.request.contextPath}";</script>
 </div>

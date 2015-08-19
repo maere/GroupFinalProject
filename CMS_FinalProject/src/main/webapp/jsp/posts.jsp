@@ -37,7 +37,7 @@
                                 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     ${post.content}
-                                    <p><a class="btn btn-default" href="${pageContext.request.contextPath}/${post.postTitle}">Read more</a><!--this link needs to go to the current blog state -->
+                                    <p><a class="btn btn-default" href="${pageContext.request.contextPath}/${post.postId}">Read more</a><!--this link needs to go to the current blog state -->
                                     </p>
                                 </div>
                             </div><!--end post -->
@@ -47,11 +47,11 @@
                                 <div class="col-lg-10 col-md-10 col-sm-10">
                                     <p></p>
                                     <p> <i class="glyphicon glyphicon-user"></i> by <a href="#">${post.userIdCreatedBy}</a> | 
-                                        <i class="glyphicon glyphicon-calendar"></i> ${post.uploadDate} 
-                                        <i class="glyphicon glyphicon-comment"></i>  <a href="#">Comments</a> | <!-- need to write a SQL method to pass commetn object from post Id and pass in here-->
-                                        |
-                                        <i class="glyphicon glyphicon-share"></i> <a href="#">Shares</a>
-                                        | <i class="glyphicon glyphicon-tags"></i> Tags: 
+                                        <i class="glyphicon glyphicon-calendar"></i> ${post.uploadDate}  | 
+                                        <i class="glyphicon glyphicon-comment"></i>  <a href="#">Comments</a>  | <!-- need to write a SQL method to pass commetn object from post Id and pass in here-->
+                                       
+                                        <i class="glyphicon glyphicon-share"></i> <a href="#">Shares</a>  | 
+                                        <i class="glyphicon glyphicon-tags"></i> Tags: 
                                         <a href="#"><span class="label label-info">Bootstrap</span></a> 
                                         <a href="#"><span class="label label-info">UI</span>
                                         </a>
