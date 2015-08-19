@@ -15,11 +15,11 @@ import com.swcguild.cms_finalproject.dto.StaticPage;
 
 public class StaticPageDaoDbImpl implements StaticPageDao {
 
-	private static final String SQL_INSERT_STATICPAGE = "INSERT INTO staticpages (title, content) VALUES (?, ?)";
-	private static final String SQL_DELETE_STATICPAGE = "DELETE FROM staticpages WHERE staticpages_id=?";
-	private static final String SQL_UPDATE_STATICPAGE = "UPDATE staticpages SET title=?, content=? WHERE staticpage_id=?";
-	private static final String SQL_SELECT_ALL_STATICPAGES = "SELECT * FROM staticpages";
-	private static final String SQL_SELECT_STATICPAGE = "SELECT * FROM staticpages WHERE staticpage_id=?";
+	private static final String SQL_INSERT_STATICPAGE = "INSERT INTO static_pages (page_title, page_content) VALUES (?, ?)";
+	private static final String SQL_DELETE_STATICPAGE = "DELETE FROM static_pages WHERE static_pages_id=?";
+	private static final String SQL_UPDATE_STATICPAGE = "UPDATE static_pages SET page_title=?, page_content=? WHERE static_page_id=?";
+	private static final String SQL_SELECT_ALL_STATICPAGES = "SELECT * FROM static_pages";
+	private static final String SQL_SELECT_STATICPAGE = "SELECT * FROM static_pages WHERE static_page_id=?";
 	
 	private JdbcTemplate jdbcTemplate;
 	
@@ -32,8 +32,8 @@ public class StaticPageDaoDbImpl implements StaticPageDao {
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
 	public StaticPage createStaticPage(StaticPage staticPage) {
 		jdbcTemplate.update(SQL_INSERT_STATICPAGE,
-				staticPage.getTitle(),
-				staticPage.getContent());
+				staticPage.getPageTitle(),
+				staticPage.getPageContent());
 		staticPage.setStaticPageId(jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Integer.class));
 		return staticPage;
 	}
@@ -41,8 +41,8 @@ public class StaticPageDaoDbImpl implements StaticPageDao {
 	@Override
 	public void updateStaticPage(StaticPage staticPage) {
 		jdbcTemplate.update(SQL_UPDATE_STATICPAGE,
-				staticPage.getTitle(),
-				staticPage.getContent(),
+				staticPage.getPageTitle(),
+				staticPage.getPageContent(),
 				staticPage.getStaticPageId()
 				);
 	}
@@ -59,13 +59,12 @@ public class StaticPageDaoDbImpl implements StaticPageDao {
 
 	@Override
 	public List<StaticPage> getAllStaticPages() {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.query(SQL_SELECT_ALL_STATICPAGES, new StaticPageMapper());
 	}
 
 	@Override
 	public void deleteStaticPage(int staticPageId) {
-		// TODO Auto-generated method stub
+		 jdbcTemplate.update(SQL_DELETE_STATICPAGE, staticPageId);
 	}
 	
 	private static final class StaticPageMapper implements ParameterizedRowMapper<StaticPage>
@@ -73,9 +72,9 @@ public class StaticPageDaoDbImpl implements StaticPageDao {
 		@Override
 		public StaticPage mapRow(ResultSet rs, int i) throws SQLException {
 			StaticPage sp = new StaticPage();
-			sp.setStaticPageId(rs.getInt("staticPage_id"));
-			sp.setTitle(rs.getString("title"));
-			sp.setContent(rs.getString("content"));
+			sp.setStaticPageId(rs.getInt("static_page_id"));
+			sp.setPageTitle(rs.getString("page_title"));
+			sp.setPageContent(rs.getString("page_content"));
 			return sp;
 		}
 	}

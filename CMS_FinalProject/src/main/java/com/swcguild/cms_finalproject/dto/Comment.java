@@ -11,16 +11,21 @@ package com.swcguild.cms_finalproject.dto;
  */
 public class Comment {
     private int commentId;
+    
     private String content;
+    
+    private int postId;
+    
+    
 
-    
-    
-    @Override
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + commentId;
 		result = prime * result + ((content == null) ? 0 : content.hashCode());
+		result = prime * result + postId;
 		return result;
 	}
 
@@ -46,6 +51,9 @@ public class Comment {
 		} else if (!content.equals(other.content)) {
 			return false;
 		}
+		if (postId != other.postId) {
+			return false;
+		}
 		return true;
 	}
 
@@ -64,5 +72,15 @@ public class Comment {
     public void setContent(String content) {
         this.content = content;
     }
+
+	public int getPostId() {
+		return postId;
+	}
+
+	public void setPostId(int postId) {
+		this.postId = postId;
+	}
+    
+    
     
 }

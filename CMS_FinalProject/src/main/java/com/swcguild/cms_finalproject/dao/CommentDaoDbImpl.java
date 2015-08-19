@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.swcguild.cms_finalproject.dto.Comment;
+import com.swcguild.cms_finalproject.dto.Post;
 
 public class CommentDaoDbImpl implements CommentDao{
 
@@ -21,7 +22,7 @@ public class CommentDaoDbImpl implements CommentDao{
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	private static final String SQL_INSERT_COMMENT = "INSERT INTO comments (content) VALUES(?)";
+	private static final String SQL_INSERT_COMMENT = "INSERT INTO comments (content, postId) VALUES(?,?)";
 	private static final String SQL_DELETE_COMMENT = "DELETE FROM comments WHERE comment_id=?";
 	private static final String SQL_UPDATE_COMMENT = "UPDATE comments SET comment=?";
 	private static final String SQL_SELECT_COMMENT = "SELECT FROM comments WHERE comment_id=?";
@@ -29,7 +30,7 @@ public class CommentDaoDbImpl implements CommentDao{
 	
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public Comment createComment(Comment comment) {
+	public Comment createComment(Comment comment, Post postId) {
 		jdbcTemplate.update(SQL_INSERT_COMMENT, 
 				comment.getCommentId());
 		comment.setCommentId(jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID", Integer.class));

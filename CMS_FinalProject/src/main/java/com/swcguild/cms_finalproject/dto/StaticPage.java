@@ -11,8 +11,8 @@ package com.swcguild.cms_finalproject.dto;
  */
 public class StaticPage {
     int staticPageId;
-    String title;
-    String content;
+    String pageTitle;
+    String pageContent;
     
 	public int getStaticPageId() {
 		return staticPageId;
@@ -20,17 +20,17 @@ public class StaticPage {
 	public void setStaticPageId(int staticPageId) {
 		this.staticPageId = staticPageId;
 	}
-	public String getTitle() {
-		return title;
+	public String getPageTitle() {
+		return pageTitle;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setPageTitle(String pageTitle) {
+		this.pageTitle = pageTitle;
 	}
-	public String getContent() {
-		return content;
+	public String getPageContent() {
+		return pageContent;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setPageContent(String pageContent) {
+		this.pageContent = pageContent;
 	}
     
     

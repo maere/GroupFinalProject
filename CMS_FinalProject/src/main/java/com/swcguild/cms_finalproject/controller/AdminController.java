@@ -7,8 +7,10 @@ package com.swcguild.cms_finalproject.controller;
 
 import com.swcguild.cms_finalproject.dao.TinyMceDao;
 import com.swcguild.cms_finalproject.dao.PostDao;
+import com.swcguild.cms_finalproject.dao.StaticPageDao;
 import com.swcguild.cms_finalproject.dao.UserDao;
 import com.swcguild.cms_finalproject.dto.Post;
+import com.swcguild.cms_finalproject.dto.StaticPage;
 import com.swcguild.cms_finalproject.dto.User;
 import com.swcguild.cms_finalproject.dto.Image;
 
@@ -45,28 +47,29 @@ public class AdminController {
 	private PostDao daoP;
 	private UserDao daoU;
 	private TinyMceDao daoT;
+        private StaticPageDao daoSP;
 
 	@Inject
-	public AdminController(PostDao daoP, UserDao daoU, TinyMceDao daoT) { // StaticPageDao daoSP,
-		this.daoT = daoT;													// CommentDao	// daoCmt, etc.
+	public AdminController(PostDao daoP, UserDao daoU, TinyMceDao daoT, StaticPageDao daoSP) { // StaticPageDao																// daoCmt,
+		this.daoT = daoT;																		// etc.
 		this.daoP = daoP;
 		this.daoU = daoU;
-
+		this.daoSP = daoSP;
 	}
 
 	// do we need this one? Is in HomeController --> +loadHomePage(): GET
 
-	// added a GET method for adminpanelpage
-	@RequestMapping(value = "/adminpanelpage", method = RequestMethod.GET)
-	public String displayAdminPanelPage() {
+
+
+	public String displayAdminPanelPage(Model model) {
+		generateNavBar(model);
 		return "adminpanelpage";
 	}
 
-	// +logInUser():PUT //moved login to the Home Controller
-
 	// +loadMakeAPostPage(): GET
 	@RequestMapping(value = "/createpost", method = RequestMethod.GET)
-	public String displayMakeAPostPage() {
+	public String displayMakeAPostPage(Model model) {
+		generateNavBar(model);
 		return "createpost";
 	}
 
@@ -81,8 +84,6 @@ public class AdminController {
 		return post;
 	}
 
-	//// +confirmBlogPost(): POST //Sending back the post object to Ajax to
-	//// display in a dialog box before confirm -- is this a PUT?
 
 	// +deletePostFromDB(): DELETE
 	@RequestMapping(value = "/post/{postId}", method = RequestMethod.DELETE)
@@ -99,13 +100,8 @@ public class AdminController {
 		daoP.updatePost(post);
 	}
 
+
 	// Uploading and storing image to the server
-
-	@RequestMapping(value = {"/index" }, method = RequestMethod.GET)
-	public String returnIndex() {
-		return "index";
-	}
-
 	@RequestMapping(value = "/displayUploadForm", method = RequestMethod.GET)
 	public String displayUploadForm() {
 		return "uploadForm";
@@ -149,6 +145,35 @@ public class AdminController {
 		post.setPostTitle(req.getParameter("postTitle"));
 		daoT.addSomething(post);
 		return "adminpanelpage";
+        }
+        
+	// NOTE: this is a placeholder for the method immediately following which
+	// will dynamically load/create an about us page
+	@RequestMapping(value = "/createstaticpage", method = RequestMethod.GET)
+	public String staticPagePlaceholder(Model model) {
+		generateNavBar(model);
+		return "createstaticpage";
+	}
+
+
+	@RequestMapping(value = "/staticPage", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	@ResponseBody
+	public StaticPage createStaticPage(@RequestBody StaticPage staticPage, Model model) {
+		generateNavBar(model);
+		daoSP.createStaticPage(staticPage);
+		return staticPage;
+	}
+
+	@RequestMapping(value = "staticPage/{pageId}", method = RequestMethod.DELETE)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteStaticPage(@PathVariable("pageId") int pageId) {
+		daoSP.deleteStaticPage(pageId);
+	}
+
+	private void generateNavBar(Model model) {
+		List<StaticPage> spAll = daoSP.getAllStaticPages();
+		model.addAttribute("staticPageAll", spAll);
 	}
 
 }

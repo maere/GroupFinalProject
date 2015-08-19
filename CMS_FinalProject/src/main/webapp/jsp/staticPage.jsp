@@ -1,43 +1,28 @@
-<%-- 
-    Document   : staticPage
-    Created on : Aug 11, 2015, 11:37:23 AM
-    Author     : apprentice
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
-        <script language="javascript" type="text/javascript" src="${pageContext.request.contextPath}/js/tinymce/tinymce.min.js"><jsp:text /></script> 
-        <script type="text/javascript">
-            tinymce.init({
-                selector: "h1.editable",
-                inline: true,
-                toolbar: "undo redo",
-                menubar: false
-            });
+<head>
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css"
+	rel="stylesheet">
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/tinymce/tinymce.min.js">
+	<jsp:text />
+</script>
 
-            tinymce.init({
-                selector: "div.editable",
-                inline: true,
-                plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table contextmenu paste"
-                ],
-                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-            });
-        </script>
+<link rel="shortcut icon"
+	href="${pageContext.request.contextPath}/img/icon.png">
 
-        <h1 class="editable">Editable header</h1>
+</head>
 
-        <div class="editable" style="width:100%; height:550px">
-            This is an editable div element element.
-        </div>
-    </body>
+<body>
+<jsp:include page="navBarWithoutLogin.jsp"></jsp:include>
+	<h1>${staticPage.pageTitle}</h1>
+	<p>${staticPage.pageContent}</p>
+	
+	<script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/dropdownlogin.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+	
+</body>
 </html>

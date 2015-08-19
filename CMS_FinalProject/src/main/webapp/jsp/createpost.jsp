@@ -24,7 +24,7 @@
             </form>
 
 
-
+            <%--
             <form class="form-horizontal row-border" role="form" action="postsomething" method="post">
                 <div class="form-group">
                     <label class="col-md-1 control-label text-left">Title</label>
@@ -62,24 +62,35 @@
                         <input type="text" class="form-control" name="hashTagIds" path="hashtagIds" placeholder="Tags" style="length:10px;"/><br/>
                     </div>
                 </div>
-            </form>
-            
+            </form> --%>
+
+
             <form action="postsomething" method="post">
-                <%--<input type="text" class="form-control" id="add-title" name="title" placeholder="Title" value="${param.title}" /> --%>
+
+
                 <textarea id="mytextarea" name="mytextarea2" class="mceAdvanced" >${param.mytextarea2}</textarea>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-1 control-label text-left">Title</label>
+                        <div for="add-post-title" class="col-md-5">
+                            <input type="text" id="add-post-title" name="postTitle" path="postTitle" class="form-control" placeholder="Enter Your Blog Post Title" type="text">
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                </div>
                 <button id="submit-button">Submit</button>
             </form>
-
         </div>
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/addEditForm.js"></script>
-        <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.js"></script>
-        <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.dev.js"></script>
-        <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.jquery.dev.js"></script>
-        <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.jquery.js"></script>
-    </body>
+
+    </div>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/addEditForm.js"></script>
+    <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.js"></script>
+    <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.dev.js"></script>
+    <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.jquery.dev.js"></script>
+    <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.jquery.js"></script>
+</body>
 </html>  
-
-

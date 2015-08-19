@@ -27,14 +27,6 @@
         <property name="maxActive" value="10" />
     </bean>
     
-
-    <bean id="UserDao" class="com.swcguild.cms_finalproject.dao.UserDaoDbImpl" >
-    <property name="jdbcTemplate" ref="jdbcTemplate" />
-    </bean>    
-    
-    <bean id="HashtagDao" class="com.swcguild.cms_finalproject.dao.HashtagDaoDbImpl" >
-    <property name="jdbcTemplate" ref="jdbcTemplate" />
-    </bean>
     
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />

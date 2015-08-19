@@ -15,16 +15,10 @@
 
     </head>
     <body>
-        <jsp:include page="navBarWithLogin.jsp"></jsp:include>
-            <div class="col-sm-12">
-                <h2 class="text-center">About our company</h3>
-                    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            </div>
+	<jsp:include page="navBarWithLogin.jsp"></jsp:include>
 
-
-        </div>
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/dropdownlogin.js"></script>
 
