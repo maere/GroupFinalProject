@@ -81,20 +81,33 @@ public class HomeController {
         return selectedPost;
     }
 
-    //added a public GET to get a post page
+    //added a public GET to get a post page -- but this is a JSON return --below is a a jsp return
+//    @RequestMapping(value = "/post/{postId}", method = RequestMethod.GET)
+//    @ResponseBody
+//    public Post retrieveBlogPostPage(@PathVariable("postId") int postId) {
+//        Post selectedPost = daoP.getPostById(postId);
+//        return selectedPost; //is this correct? we want to return the post object to Ajax to parse and place in page.
+//
+//    }
+    
+    //replaces the JSON object return above, this returns jsp page and will load dynamically through JSTL
     @RequestMapping(value = "/post/{postId}", method = RequestMethod.GET)
-    @ResponseBody
-    public Post retrieveBlogPostPage(@PathVariable("postId") int postId) {
-        Post selectedPost = daoP.getPostById(postId);
-        return selectedPost; //is this correct? we want to return the post object to Ajax to parse and place in page.
+    public String retrieveBlogPostPage(@PathVariable("postId") int postId, Model model) {
+        
+        Post blogPost = daoP.getPostById(postId);
+        model.addAttribute("blogPost", blogPost);
+        return "individualBlogPostPage"; 
 
     }
 
 // need a get allPosts method (not in our UML) //
     @RequestMapping(value = "/posts", method = RequestMethod.GET)
-    @ResponseBody
-    public List<Post> getAllPosts() {
-        return daoP.getAllPosts();
+    //@ResponseBody -- no need  for Response Body when returning a VIEW, not JSON object--which would require a response body for endpoint
+    public String getAllPosts(Model model) {
+       
+        List<Post> postList = daoP.getAllPosts();
+        model.addAttribute("postList", postList);
+        return "posts";
     }
 
 //and probably also one for the post by category
