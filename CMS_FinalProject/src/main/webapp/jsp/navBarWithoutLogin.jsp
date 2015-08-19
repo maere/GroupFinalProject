@@ -29,7 +29,6 @@
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 
-<<<<<<< HEAD
 </nav>
 
 	<script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
@@ -40,8 +39,8 @@
 	
 <%--     <script type="text/javascript"> --%>
 <%--     var contextRoot = ${pageContext.request.contextPath};</script> --%>
-=======
+
     <script type="text/javascript">
     var contextRoot = "${pageContext.request.contextPath}";</script>
 </div>
->>>>>>> origin/master
+

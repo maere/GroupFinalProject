@@ -33,10 +33,3 @@
 
 </body>
 </html>
-
-<!--<h3 class="text-center">${staticPage.pageTitle}</h3> -->
-<%-- 		<c:forEach items="${staticPageAll}" var="staticPage"> --%>
-<!-- 			<div class="col-md-4-center"> -->
-<%-- 				<p class="text-center">${staticPage.pageContent}</p> --%>
-<!-- 			</div> -->
-<%-- 		</c:forEach> --%>
