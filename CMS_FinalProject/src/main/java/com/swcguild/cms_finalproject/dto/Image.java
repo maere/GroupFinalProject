@@ -11,7 +11,9 @@ package com.swcguild.cms_finalproject.dto;
  */
 public class Image {
     private byte[] imageBytes;
-    private int image_id;
+    private int imageId;
+    private String imageName;
+    private String imageType;
 
     public byte[] getImageBytes() {
         return imageBytes;
@@ -21,11 +23,27 @@ public class Image {
         this.imageBytes = imageBytes;
     }
 
-    public int getImage_id() {
-        return image_id;
+    public int getImageId() {
+        return imageId;
     }
 
-    public void setImage_id(int image_id) {
-        this.image_id = image_id;
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
     }
 }

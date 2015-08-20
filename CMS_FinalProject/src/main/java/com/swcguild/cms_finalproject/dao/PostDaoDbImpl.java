@@ -47,6 +47,16 @@ public class PostDaoDbImpl implements PostDao {
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
+   
+    //KHOA's method from TinyMCDE Dao
+//    @Override
+//    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+//    public Post addSomething(Post post) {
+//        jdbcTemplate.update(SQL_TEXT_INSERT, post.getPostTitle(),
+//                                             post.getContent());
+//        post.setPostId(jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Integer.class));
+//        return post;
+//    }
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)

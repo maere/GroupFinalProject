@@ -16,6 +16,7 @@
     </head>
     <body>
         <jsp:include page="navBarWithLogin.jsp"></jsp:include>
+        
             <div class="col-lg-12 col-md-12 col-sm-12"><!-- col 1-->
                 <div class="container"> 
                     

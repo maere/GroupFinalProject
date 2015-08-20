@@ -16,8 +16,8 @@
     </head>
     <body>
         <jsp:include page="navBarWithLogin.jsp"></jsp:include>
+        
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <h2 class="text-center">RC Bot Blog</h2>
                 <div class="container">
                     <div class="row">
 

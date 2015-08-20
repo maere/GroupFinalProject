@@ -17,4 +17,6 @@ public interface TinyMceDao {
     public String getSomething();
     public Image addImage(Image image);
     public Image getImage(int id);
+    
+    //do we also need an update, and a delete method in here
 }

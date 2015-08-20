@@ -1,4 +1,4 @@
-/* 
+ /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -23,7 +23,7 @@ function fillPostTable(postList, status) {
         pTable.append($('<tr>').append($('<td>').append($('<a>').attr({
             'data-post-id': post.postId,
             'data-toggle': 'modal',
-            'data-target': '#blog-post-id' //this is how we grab the modal, on this click event, for this data object
+            'data-target': '#detailsModal' //this is how we grab the modal, on this click event, for this data object
         }).text(post.postTitle)))
                 .append($('<td>').text(post.createdDate))
                 .append($('<td>').append($('<a>').attr({
@@ -56,7 +56,7 @@ function deletePost(id) {
 
 function loadPosts() {
     $.ajax({
-        url: 'posts'     //this data is a list of objects, the gets returned from the method in the controller that calls on "posts"
+        url: 'adminposts'     //this data is a list of objects, the gets returned from the method in the controller that calls on "posts"
     }).success(function (data, status) { //pass data that we are getting back from the server, which will be a json object
         fillPostTable(data, status);
     });
@@ -75,7 +75,7 @@ $('#detailsModal').on('show.bs.modal', function (event) { //when the show modal 
 
     $.ajax({
         type: 'GET',
-        url: 'post/' + id //we construct this on the fly
+        url: 'blog/' + id //we construct this on the fly
     })
             .success(function (post) {
                 modal.find('#post-id').text(post.postId);
@@ -90,6 +90,39 @@ $('#detailsModal').on('show.bs.modal', function (event) { //when the show modal 
 });//end onclick
 
 
+////details click handler
+//$('#details-button').click(function (event) {
+//    
+//    event.preventDefault();
+//
+//    $.ajax({ 
+//        type: 'PUT', 
+//        url: 'post/' + $('#edit-post-id').val(), 
+//        data: JSON.stringify({ //this method takes the values of the #attribute and pairs it with the property in our Java DTO object
+//
+//            postId: $('#edit-id').val(), 
+//            postTitle: $('#edit-title').val(),
+//            //createdDate: $('#edit-createdDate').val(),
+//            uploadDate: $('#edit-uploadDate').val(),
+//            takeDownDate: $('#edit-takeDownDate').val(),
+//            content: $('#edit-content').val()
+//                    //other: $('#edit-other').val()
+//        }),
+//        headers: {
+//            'Accept': 'application/json',
+//            'Content-Type': 'application/json'
+//        },
+//        'dataType': 'json'
+//    })
+//
+//            .success(function () {
+//                loadPosts();
+//            });
+//
+//});//end edit button handler
+
+
+
 //edit modal event handler
 $('#editModal').on('show.bs.modal', function (event) {
 
@@ -102,9 +135,9 @@ $('#editModal').on('show.bs.modal', function (event) {
 
     $.ajax({
         type: 'GET',
-        url: 'post/' + postId
+        url: 'blog/' + postId
     }).success(function (post) {
-        modal.find('#post-id').text(post.id);//heck this value in contacts-not clear about where itshows up
+        modal.find('#post-id').text(post.id);//check this value 
 
         modal.find("#edit-post-id").val(post.postId);
         modal.find("#edit-title").val(post.postTitle);

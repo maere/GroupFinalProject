@@ -58,8 +58,8 @@ public class HomeController {
 //        return "staticPage";
 //    }
 
-    @RequestMapping(value = "/staticPage/{pageId}", method = RequestMethod.GET)
-    public String staticPage(@PathVariable("pageId") int pageId, Model model) 
+    @RequestMapping(value = "/staticPage/{staticPageId}", method = RequestMethod.GET)
+    public String staticPage(@PathVariable("staticPageId") int pageId, Model model) 
     {
     	generateNavBar(model);
     	StaticPage sp1 = daoSP.getStaticPageById(pageId);
@@ -90,15 +90,7 @@ public class HomeController {
         return selectedPost;
     }
 
-    //added a public GET to get a post page -- but this is a JSON return --below is a a jsp return
-//    @RequestMapping(value = "/post/{postId}", method = RequestMethod.GET)
-//    @ResponseBody
-//    public Post retrieveBlogPostPage(@PathVariable("postId") int postId) {
-//        Post selectedPost = daoP.getPostById(postId);
-//        return selectedPost; //is this correct? we want to return the post object to Ajax to parse and place in page.
-//
-//    }
-    
+
     //replaces the JSON object return above, this returns jsp page and will load dynamically through JSTL
     @RequestMapping(value = "/post/{postId}", method = RequestMethod.GET)
     public String retrieveBlogPostPage(@PathVariable("postId") int postId, Model model) {
@@ -158,5 +150,10 @@ public class HomeController {
     	List<StaticPage> spAll = daoSP.getAllStaticPages();
     	model.addAttribute("staticPageAll", spAll);
     }
+    
+    
+    //post a comment to a post
+    
+    
 
 }

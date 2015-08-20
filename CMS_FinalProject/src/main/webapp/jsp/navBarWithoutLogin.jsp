@@ -12,7 +12,8 @@
         <li role="presentation"  class="active"><a href="${pageContext.request.contextPath}/home">Home</a></li>
         <li role="presentation"><a href="${pageContext.request.contextPath}/about">About</a></li>
         <li role="presentation"><a href="${pageContext.request.contextPath}/blog">Blog</a></li>
-        <li role="presentation"><a href="${pageContext.request.contextPath}/createstaticpage">NewStaticPage</a></li> 
+       <!--we need to remove from public page, the createstaticpage route is accessible only from the adminpanel -> 
+       <li role="presentation"><a href="${pageContext.request.contextPath}/createstaticpage">NewStaticPage</a></li>-->
 
 
         
