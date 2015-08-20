@@ -60,7 +60,7 @@ public class AdminController {
 	// do we need this one? Is in HomeController --> +loadHomePage(): GET
 
 
-
+        @RequestMapping(value = "/adminpanelpage", method = RequestMethod.GET)
 	public String displayAdminPanelPage(Model model) {
 		generateNavBar(model);
 		return "adminpanelpage";
@@ -131,13 +131,7 @@ public class AdminController {
 			Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
-
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
-	public String sayHi(Model model) {
-		model.addAttribute("something", daoT.getSomething());
-		return "hello";
-	}
-
+        
 	@RequestMapping(value = "/postsomething", method = RequestMethod.POST)
 	public String postSomething(HttpServletRequest req) {
 		Post post = new Post();
