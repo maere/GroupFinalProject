@@ -5,6 +5,7 @@
  */
 package com.swcguild.cms_finalproject.controller;
 
+import com.swcguild.cms_finalproject.dao.ImageDao;
 import com.swcguild.cms_finalproject.dao.TinyMceDao;
 import com.swcguild.cms_finalproject.dao.PostDao;
 import com.swcguild.cms_finalproject.dao.StaticPageDao;
@@ -46,12 +47,14 @@ public class AdminController {
 
     private PostDao daoP;
     private UserDao daoU;
-    private TinyMceDao daoT;
+    //private TinyMceDao daoT;
+    private ImageDao daoImg;
     private StaticPageDao daoSP;
 
     @Inject
-    public AdminController(PostDao daoP, UserDao daoU, TinyMceDao daoT, StaticPageDao daoSP) { // StaticPageDao																// daoCmt,
-        this.daoT = daoT;																		// etc.
+    public AdminController(PostDao daoP, UserDao daoU, ImageDao daoImg, StaticPageDao daoSP) { // StaticPageDao, TinyMceDao daoT																// daoCmt,
+        //this.daoT = daoT;
+        this.daoImg = daoImg;
         this.daoP = daoP;
         this.daoU = daoU;
         this.daoSP = daoSP;
@@ -80,28 +83,44 @@ public class AdminController {
         return selectedPost; //is this correct? we want to return the post object to Ajax to parse and place in page.
 
     }
-
-    //NOTE: we have two create post routes now, so we will need to resolve this first is for Khao's image post
-    @RequestMapping(value = "/postsomething", method = RequestMethod.POST)
-    public String postSomething(HttpServletRequest req) {
-        Post post = new Post();
-        post.setContent(req.getParameter("mytextarea2")); //gets param vals
-        post.setPostTitle(req.getParameter("postTitle"));
-        daoT.addSomething(post);                        //dao is changed--new method
-        return "adminpanelpage";
-    }
-
-    // +addPostToDB(): POST
-    @RequestMapping(value = "/post", method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
+//--------------------------------------------------------
+    //KHOA- NOTE: we have two create post routes now, so we will need to resolve this first is for Khao's image post
+//    @RequestMapping(value = "/postsomething", method = RequestMethod.POST)
+//    public String postSomething(HttpServletRequest req) {
+//        Post post = new Post();
+//        post.setContent(req.getParameter("mytextarea2")); //gets param vals
+//        post.setPostTitle(req.getParameter("postTitle"));
+//        daoT.addSomething(post);                        //dao is changed--new method
+//        return "adminpanelpage";
+//    }
+    
+    //NEW
+    @RequestMapping(value="/post", method=RequestMethod.POST)
     @ResponseBody
-    public Post createThisPost(@RequestBody Post post) { // @Valid -- need to
-        // add validation to
-        // DTO
+    public Post createAPostObject(@RequestBody Post post){
+//        post.setContent();
+//        post.setPostTitle(null);
+//        post.setUploadDate(null);
+//        post.setTakeDownDate(null);
+        //post.setUserIdCreatedBy(userIdCreatedBy);
+        //post.setUserIdUpdatedBy(userIdUpdatedBy);
+        //post.setComments(null);
         daoP.createPost(post);
-        return post;
+         return post; 
     }
+    
 
+//    //OLD JS/JSON +addPostToDB(): POST
+//    @RequestMapping(value = "/post", method = RequestMethod.POST)
+//    @ResponseStatus(HttpStatus.CREATED)
+//    @ResponseBody
+//    public Post createThisPost(@RequestBody Post post) { // @Valid -- need to
+//        // add validation to
+//        // DTO
+//        daoP.createPost(post);
+//        return post;
+//    }
+//----------------------------------------------------------------------------------------
     // need a get allPosts method (not in our UML) //
     @RequestMapping(value = "/adminposts", method = RequestMethod.GET)
     @ResponseBody
@@ -166,19 +185,21 @@ public class AdminController {
         Image newImage = null;
         try {
             image.setImageBytes(file.getBytes());
-            newImage = daoT.addImage(image);
+            image.setImageType(file.getContentType());
+            image.setImageName(file.getName());
+            newImage = daoImg.addImage(image);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        model.addAttribute("imagePath", req.getContextPath() + "/image/" + newImage.getImage_id());
+        model.addAttribute("imagePath", req.getContextPath() + "/image/" + newImage.getImageId());
         return "imageResponse";
     }
 
     @RequestMapping(value = "/image/{id}", method = RequestMethod.GET)
     public void getImage(@PathVariable("id") int id, HttpServletResponse response) {
-        Image image = daoT.getImage(id);
+        Image image = daoImg.getImageById(id);
         try {
-            response.setContentType("image/png");
+            response.setContentType(image.getImageType());
             IOUtils.copy(new ByteArrayInputStream(image.getImageBytes()), response.getOutputStream());
         } catch (IOException ex) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);

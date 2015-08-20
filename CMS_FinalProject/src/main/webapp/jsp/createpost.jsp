@@ -25,30 +25,42 @@
 
 
             <!--this resolves to the route postSomethng which takes a request and pulls the MCE content and title from teh  -->
-            <form action="postsomething" method="post">
-
-                <textarea id="mytextarea" name="mytextarea2" class="mceAdvanced" >${param.mytextarea2}</textarea>
-                
-
-                <div class="row">
-                    <div class="form-group">
-                        <label class="col-md-1 control-label text-left">Title</label>
-                        <div for="add-post-title" class="col-md-5">
-                            <input type="text" id="add-post-title" name="postTitle" path="postTitle" class="form-control" placeholder="Enter Your Blog Post Title" type="text">
-                        </div>
-                        <div class="col-md-6"></div>
-                    </div>
+            <form action="post" method="post" class="form-horizontal" role="form">
+                <!--this needs to match the name of the field in the dto -->
+                <div class="form-group">
+                    <textarea id="mytextarea" name="content" class="mceAdvanced" >${param.mytextarea2}</textarea>
                 </div>
+
+                <div class="form-group">
+                    <label class="col-md-1 control-label text-left">Title</label>
+                    <div for="add-post-title" class="col-md-5">
+                        <input type="text" id="add-post-title" name="postTitle" path="postTitle" class="form-control" placeholder="Enter Your Blog Post Title" type="text">
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-1 control-label">live date</label>
+                    <div for="add-live-date" class="col-md-5">
+                        <input type="date" class="form-control" name="uploadDate" path="uploadDate" id="add-live-date" placeholder="Enter your blog post go live date" type="text">
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>   
+
+                <div for="add-take-down-date"class="form-group">
+                    <label class="col-md-1 control-label">Take down date</label>
+                    <div class="col-md-5">
+                        <input type="date" id="add-take-down-date" class="form-control" name="takeDownDate" path="takeDownDate" placeholder="Enter Your Date to take down the Post" type="text">
+                    </div>
+                    <div class="col-md-6"></div>
+                </div> 
+
+                <div class="col-md-12" class="form-group">   
+                    <button type="submit" id="add-post" class="btn btn-default">Submit</button>
+                </div>
+
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                <button id="submit-button">Submit</button>
             </form>
         </div>
 
@@ -57,6 +69,9 @@
     <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/addEditForm.js"></script>
+    
+    
+    
     <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.js"></script>
     <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.dev.js"></script>
     <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.jquery.dev.js"></script>

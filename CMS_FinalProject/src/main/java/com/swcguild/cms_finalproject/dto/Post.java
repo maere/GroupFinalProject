@@ -138,7 +138,7 @@ public class Post {
         this.hashTagIds = hashTagIds;
     }
 
-    public List<Integer> getComments() {
+    public List<Integer> getComments() { //two methods should have two different return types this one should probably be List<String>
         return commentIds;
     }
 
@@ -146,6 +146,15 @@ public class Post {
         this.commentIds = commentIds;
     }
 
+     public List<Integer> getCommentIds() { //list integers of comment ids to pull string comments
+        return commentIds;
+    }
+
+    public void setCommentIds(List<Integer> commentIds) {
+        this.commentIds = commentIds;
+    }
+    
+    
     public int getUserIdCreatedBy() {
         return userIdCreatedBy;
     }
@@ -170,14 +179,7 @@ public class Post {
         this.postTitle = postTitle;
     }
 
-    public List<Integer> getCommentIds() {
-        return commentIds;
-    }
-
-    public void setCommentIds(List<Integer> commentIds) {
-        this.commentIds = commentIds;
-    }
-    
+   
     
     
     
