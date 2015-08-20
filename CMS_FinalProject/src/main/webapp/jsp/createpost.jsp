@@ -55,17 +55,18 @@
                                     </div> 
 
 
-									<!--<div class="row"> -->
-									<div for="add-hash-tags" class="form-group">
-                                   <label class="col-md-1 control-label">Hashtags</label>
-                                       <div class="col-md-5">
-                                       		<input type="text" class="form-control" name="hashTagIds" path="hashtagIds" placeholder="Tags" style="length:10px;"/><br/>
-                                       </div>
+                                    <!--<div class="row">
+                                    <div for="add-hash-tags" class="form-group">
+                                        <label class="col-md-1 control-label">Hashtags</label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="hashTagIds" path="hashtagIds" placeholder="Tags" style="length:10px;"/><br/>
+                                        </div>
 
-									   <div class="col-md-5">
-                                       		<input type="text" class="form-control" name="hashTagIds" path="hashtagIds" placeholder="Tags" style="length:10px;"/><br/>
-                                       </div>
-									</div>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="hashTagIds" path="hashtagIds" placeholder="Tags" style="length:10px;"/><br/>
+                                        </div>
+                                    </div> -->
+                                    
 
                                     <br>
                                     <div class="col-md-12" class="form-group">   
@@ -73,6 +74,7 @@
                                     <button type="submit" id="add-post" name="add-post" class="btn btn-primary btn-sm ">Submit</button>
                                     <!--<input type="submit" value="Register" /> - this is what the submit button says on it -->
                                 </div>
+                                    
                         </div><!-- end row-->
 
 
