@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.swcguild.cms_finalproject.dto.Image;
 
-public class ImageDaoDbImpl implements ImageDao {
+public class ImageDaoDbImpl{
 
 	private JdbcTemplate jdbcTemplate;
 	
@@ -30,58 +30,58 @@ public class ImageDaoDbImpl implements ImageDao {
 	
 	
 	
-	@Override
-	public Image getImageById(int imageId) {
-		try {
-			return jdbcTemplate.queryForObject(SQL_SELECT_IMAGE, new ImageMapper(), imageId);
-		} catch (EmptyResultDataAccessException ex)
-		{
-		return null;
-		}
-	}
+//	@Override
+//	public Image getImageById(int imageId) {
+//		try {
+//			return jdbcTemplate.queryForObject(SQL_SELECT_IMAGE, new ImageMapper(), imageId);
+//		} catch (EmptyResultDataAccessException ex)
+//		{
+//		return null;
+//		}
+//	}
 
-	@Override
-	public void updateImage(Image image) {
-		jdbcTemplate.update(SQL_UPDATE_IMAGE, 
-				image.getName(),
-				image.getImage(),
-				image.getImageType(),
-				image.getImageId());		
-	}
+//	@Override
+//	public void updateImage(Image image) {
+//		jdbcTemplate.update(SQL_UPDATE_IMAGE, 
+//				image.getName(),
+//				image.getImage(),
+//				image.getImageType(),
+//				image.getImageId());		
+//	}
 
-	@Override
-	public List<Image> getAllImages() {
-		return jdbcTemplate.query(SQL_SELECT_ALL_IMAGES, new ImageMapper());
-	}
+//	@Override
+//	public List<Image> getAllImages() {
+//		return jdbcTemplate.query(SQL_SELECT_ALL_IMAGES, new ImageMapper());
+//	}
 
-	@Override
-	public void deleteImage(int imageId) {
-		jdbcTemplate.update(SQL_DELETE_IMAGE, imageId);
-	}
+//	@Override
+//	public void deleteImage(int imageId) {
+//		jdbcTemplate.update(SQL_DELETE_IMAGE, imageId);
+//	}
 
-	@Override
-	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
-	public Image addImage(Image image) {
-		jdbcTemplate.update(SQL_INSERT_IMAGE, 
-				image.getName(),
-				image.getImage(),
-				image.getImageType());
-		image.setImageId(jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID", Integer.class));
-		return image;
-	}
-	
-	private static final class ImageMapper implements ParameterizedRowMapper<Image>
-	{
-		@Override
-		public Image mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Image im = new Image();
-			im.setImageId(rs.getInt("imageId"));
-			im.setName(rs.getString("name"));
-			im.setImage(rs.getBlob("image"));
-			im.setImageType(rs.getString("imageType"));
-			return im;
-		}
-		
-	}
+//	@Override
+//	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
+//	public Image addImage(Image image) {
+//		jdbcTemplate.update(SQL_INSERT_IMAGE, 
+//				image.getName(),
+//				image.getImage(),
+//				image.getImageType());
+//		image.setImageId(jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID", Integer.class));
+//		return image;
+//	}
+//	
+//	private static final class ImageMapper implements ParameterizedRowMapper<Image>
+//	{
+//		@Override
+//		public Image mapRow(ResultSet rs, int rowNum) throws SQLException {
+//			Image im = new Image();
+//			im.setImageId(rs.getInt("imageId"));
+//			im.setName(rs.getString("name"));
+//			im.setImage(rs.getBlob("image"));
+//			im.setImageType(rs.getString("imageType"));
+//			return im;
+//		}
+//		
+//	}
 
 }

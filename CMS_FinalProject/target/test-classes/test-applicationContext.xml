@@ -64,4 +64,8 @@
         <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>    
     
+    <bean id="tinyMceDao" class="com.swcguild.cms_finalproject.dao.TinyMceDaoDbImpl">
+    	<property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    
 </beans>

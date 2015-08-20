@@ -31,9 +31,8 @@ public class HomeController {
 
     }
 
-    @RequestMapping(value = {"/", "/home", "/index"}, method = RequestMethod.GET)
-    public String homePage(Model model) {
-    	generateNavBar(model);
+    @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
+    public String homePage() {
         return "home";
     }
 

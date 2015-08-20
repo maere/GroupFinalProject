@@ -38,7 +38,7 @@
 | -------------------------------------------------------------------*/
 
 	
-	$config['img_path'] = '/img'; // Relative to domain name
+	$config['img_path'] = '/images'; // Relative to domain name
 	$config['upload_path'] = $_SERVER['DOCUMENT_ROOT'] . $config['img_path']; // Physical path. [Usually works fine like this]
 
 
@@ -76,7 +76,7 @@
 | -------------------------------------------------------------------*/
 
 	
-	$config['max_width'] = 800;
+	$config['max_width'] = 0;
 
 
 /*-------------------------------------------------------------------
@@ -88,7 +88,7 @@
 | -------------------------------------------------------------------*/
 
 	
-	$config['max_height'] = 800;
+	$config['max_height'] = 0;
 
 
 /*-------------------------------------------------------------------
