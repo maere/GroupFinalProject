@@ -8,7 +8,7 @@
     </head>
     <body>
         <div>
-            <h2>Sign in to the Contact List App</h2>
+            <h2>Sign in to RC Bots</h2>
             <!-- #1 - If login_error == 1 then there was a failed login attempt --> 
             <!--      so display an error message                                -->
             <c:if test="${param.login_error == 1}">
