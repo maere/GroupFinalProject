@@ -1,4 +1,5 @@
   <!-- DROPDOWN LOGIN STARTS HERE  -->
+  <%--
     <div class="col-md-6"> 
         <ul id="signInDropdown" class="nav navbar-nav navbar">
             <li class="dropdown">
@@ -44,4 +45,6 @@
                 </ul>
             </li>
         </ul>  
-    </div><!-- DROPDOWN LOGIN ENDS HERE  -->
+    </div> --%>
+    
+    <!-- DROPDOWN LOGIN ENDS HERE  --> 
