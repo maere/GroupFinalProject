@@ -27,8 +27,8 @@
             <!--this resolves to the route postSomethng which takes a request and pulls the MCE content and title from teh  -->
             <form action="post" method="post" class="form-horizontal" role="form">
                 <!--this needs to match the name of the field in the dto -->
-                <div class="form-group">
-                    <textarea id="mytextarea" name="content" class="mceAdvanced" >${param.mytextarea2}</textarea>
+                <div class="form-group">                                            <!-- or is this param.textarea2?-->
+                    <textarea id="mytextarea" name="content" class="mceAdvanced" >${param.content}</textarea><!--id is formattnig for tinyMCE > <!-- the content you type in is between the tags as mytextarea2-->
                 </div>
 
                 <div class="form-group">
@@ -60,7 +60,7 @@
                     <button type="submit" id="add-post" class="btn btn-default">Submit</button>
                 </div>
 
-                
+
             </form>
         </div>
 
@@ -69,9 +69,9 @@
     <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/addEditForm.js"></script>
-    
-    
-    
+
+
+
     <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.js"></script>
     <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.dev.js"></script>
     <script src="${pageContext.request.contextPath}/js/tinymce/tinymce.jquery.dev.js"></script>

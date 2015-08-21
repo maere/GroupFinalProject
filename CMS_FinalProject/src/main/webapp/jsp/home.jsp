@@ -7,12 +7,11 @@
     <head>
         <title>Index Page</title>
         <!-- Bootstrap core CSS -->
-        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css"
-              rel="stylesheet">
-        <link href="${pageContext.request.contextPath}/css/logincss.css"
-              rel="stylesheet">
-        <link href="${pageContext.request.contextPath}/css/full-width-pics.css"
-              rel="stylesheet">
+
+
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/logincss.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/full-width-pics.css" rel="stylesheet">
 
         <!-- SWC Icon -->
         <link rel="shortcut icon"
@@ -61,15 +60,16 @@
                 </div>
                 <!-- /.container -->
             </footer>
-            <script>//we will need this to go at the bottom of every jsp page that loads a URL dynamically via JS
+            <!--<script>//we will need this to go at the bottom of every jsp page that loads a URL dynamically via JS
                 var contextRoot = "${pageContext.request.contextPath}"; //this will allow us to refer to the root path with out the EL {}
-        </script>
+        </script>-->
 
 
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/dropdownlogin.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
 
 
     </body>

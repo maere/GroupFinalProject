@@ -1,4 +1,4 @@
- /* 
+/* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -69,7 +69,7 @@ function loadPosts() {
 //details Modal event handler
 $('#detailsModal').on('show.bs.modal', function (event) { //when the show modal event happens...
 
-    var element = $(event.relatedTarget); //value of this element our link that led here - the target was a link
+    var element = $(event.relatedTarget); //value of this element our link that led here - the target was a link ... 
     var id = element.data('post-id'); //check html for alignment-this will need to have a matching id in HTML
     var modal = $(this); //this is currently #detailsModal object
 
@@ -135,7 +135,7 @@ $('#editModal').on('show.bs.modal', function (event) {
 
     $.ajax({
         type: 'GET',
-        url: 'blog/' + postId
+        url: 'blog/' + postId, //$('#edit-post-id').val(),
     }).success(function (post) {
         modal.find('#post-id').text(post.id);//check this value 
 
@@ -144,29 +144,34 @@ $('#editModal').on('show.bs.modal', function (event) {
         //modal.find("#edit-createdDate").val(post.createdDate);
         modal.find("#edit-uploadDate").val(post.uploadDate);
         modal.find("#edit-takeDownDate").val(post.takeDownDate);
-        modal.find("#edit-content").val(post.content);
-        //modal.find("#edit-other").val(post.other);
-        //convention for HTML/CSS attributes is dash-dash, and anything that's handled in JS, JSON, and sent back to endpoints is lowerCamelCase
+       
+        //need to get info from tiny MCE object and set the content from the database to that object (both  directions)
+        tinyMCE.get('mytextarea').setContent(post.content);
+
     });
 
 });
 
 //edit button on click handler
 $('#edit-button').click(function (event) {
-    
+
     event.preventDefault();
 
-    $.ajax({ 
-        type: 'PUT', 
-        url: 'post/' + $('#edit-post-id').val(), 
+    tinyMCE.triggerSave();
+
+    $.ajax({
+        type: 'PUT',
+        url: 'post/' + $('#edit-post-id').val(),
         data: JSON.stringify({ //this method takes the values of the #attribute and pairs it with the property in our Java DTO object
 
-            postId: $('#edit-id').val(), 
+            postId: $('#edit-id').val(),
             postTitle: $('#edit-title').val(),
             //createdDate: $('#edit-createdDate').val(),
             uploadDate: $('#edit-uploadDate').val(),
             takeDownDate: $('#edit-takeDownDate').val(),
-            content: $('#edit-content').val()
+            content: $('#mytextarea').val()
+
+                    //content: $('#edit-content').val() // content: $('#edit-content').val()
                     //other: $('#edit-other').val()
         }),
         headers: {
@@ -177,8 +182,10 @@ $('#edit-button').click(function (event) {
     })
 
             .success(function () {
+             
                 loadPosts();
             });
+                    
 
 });//end edit button handler
 

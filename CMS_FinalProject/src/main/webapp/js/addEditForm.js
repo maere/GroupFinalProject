@@ -56,5 +56,8 @@ $(document).ready(function () {
                     $(location).attr('href', 'adminpanelpage');
                 });
     });
+    
+    //need and "#edit-post method here"
+    
 
 });

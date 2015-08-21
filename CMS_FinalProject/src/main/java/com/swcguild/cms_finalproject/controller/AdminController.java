@@ -75,7 +75,24 @@ public class AdminController {
         return "createpost";
     }
 
-   //added a public GET to get a post page for site viewer that returns a view, but this method for the admin is a JSON return 
+    //alternate route for updating a blog post trhough AJAX and that admin edit modal
+    @RequestMapping(value = "/blog/{postId}", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateBlogPostPage(@PathVariable("postId") int postId, @RequestBody Post post) {
+         post.setPostId(postId);
+         daoP.updatePost(post);
+
+    }
+
+      // +updatePostInDB(): PUT //possibly will use this route for comment
+    @RequestMapping(value = "/post/{postId}", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void putPost(@PathVariable("postId") int postId, @RequestBody Post post) {
+        post.setPostId(postId);
+        daoP.updatePost(post);
+    }
+    
+    //added a public GET to get a post page for site viewer that returns a view, but this method for the admin is a JSON return 
     @RequestMapping(value = "/blog/{postId}", method = RequestMethod.GET)
     @ResponseBody
     public Post getBlogPostPage(@PathVariable("postId") int postId) {
@@ -93,11 +110,11 @@ public class AdminController {
 //        daoT.addSomething(post);                        //dao is changed--new method
 //        return "adminpanelpage";
 //    }
-    
+
     //NEW
-    @RequestMapping(value="/post", method=RequestMethod.POST)
+    @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
-    public Post createAPostObject(@RequestBody Post post){
+    public Post createAPostObject(@RequestBody Post post) {
 //        post.setContent();
 //        post.setPostTitle(null);
 //        post.setUploadDate(null);
@@ -106,9 +123,8 @@ public class AdminController {
         //post.setUserIdUpdatedBy(userIdUpdatedBy);
         //post.setComments(null);
         daoP.createPost(post);
-         return post; 
+        return post;
     }
-    
 
 //    //OLD JS/JSON +addPostToDB(): POST
 //    @RequestMapping(value = "/post", method = RequestMethod.POST)
@@ -136,13 +152,13 @@ public class AdminController {
         daoP.removePost(postId);
     }
 
-    // +updatePostInDB(): PUT
-    @RequestMapping(value = "/post/{postId}", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void putPost(@PathVariable("postId") int postId, @RequestBody Post post) {
-        post.setPostId(postId);
-        daoP.updatePost(post);
-    }
+//    // +updatePostInDB(): PUT //possibly will use this route for comment
+//    @RequestMapping(value = "/post/{postId}", method = RequestMethod.PUT)
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    public void putPost(@PathVariable("postId") int postId, @RequestBody Post post) {
+//        post.setPostId(postId);
+//        daoP.updatePost(post);
+//    }
 
     // NOTE: this is a placeholder for the method immediately following which
     // will dynamically load/create an about us page
