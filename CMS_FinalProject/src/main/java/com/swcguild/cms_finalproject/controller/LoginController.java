@@ -14,6 +14,6 @@ public class LoginController {
     // #1 - respond to all GET requests for /login
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public String showLoginForm() {
-        return "login2";
+        return "loginPage";
     }
 }
